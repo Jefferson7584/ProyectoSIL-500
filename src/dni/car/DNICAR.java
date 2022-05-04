@@ -18,10 +18,7 @@ public class DNICAR {
         // TODO code application logic here
         
         System.out.println("PRIMERA PRUEBA");
-        System.out.println("PRIMERA PRUEBA");
-        System.out.println("PRIMERA PRUEBA");
-        System.out.println("PRIMERA PRUEBA");
-        System.out.println("PRIMERA PRUEBA");
+       
     }
     
 }
