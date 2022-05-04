@@ -16,6 +16,11 @@ public class DNICAR {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        System.out.println("PRIMERA PRUEBA");
+        System.out.println("PRIMERA PRUEBA");
+        System.out.println("PRIMERA PRUEBA");
+        System.out.println("PRIMERA PRUEBA");
         System.out.println("PRIMERA PRUEBA");
     }
     
