@@ -30,33 +30,33 @@ public class Propietario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtci = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtnombre1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtnombre2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtpaterno = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtmaterno = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtpais = new javax.swing.JTextField();
+        cbexpedido = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtciudad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtzona = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtdomicilio = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        txtqr = new javax.swing.JTextField();
+        txtfoto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablapropietario = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        txtbuqueda = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -72,96 +72,81 @@ public class Propietario extends javax.swing.JFrame {
 
         jLabel3.setText("C.I. ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
-
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 120, -1));
+        jPanel1.add(txtci, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 120, -1));
 
         jLabel4.setText("EXPEDIDO ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
-
-        jTextField2.setText("jTextField2");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 120, -1));
+        jPanel1.add(txtnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 120, -1));
 
         jLabel5.setText("NOMBRE 1");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
-
-        jTextField3.setText("jTextField3");
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 130, -1));
+        jPanel1.add(txtnombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 130, -1));
 
         jLabel6.setText("NOMBRE 2");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
-
-        jTextField4.setText("jTextField4");
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 120, -1));
+        jPanel1.add(txtpaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 120, -1));
 
         jLabel7.setText("APELLIDO PATERNO");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
-
-        jTextField5.setText("jTextField5");
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 130, -1));
+        jPanel1.add(txtmaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 130, -1));
 
         jLabel8.setText("APELLIDO MATERNO");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, 20));
+        jPanel1.add(txtpais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, -1));
 
-        jTextField6.setText("jTextField6");
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, -1));
+        cbexpedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(cbexpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, -1));
 
         jLabel9.setText("PAIS");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         jLabel10.setText("CIUDAD");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
-
-        jTextField7.setText("jTextField7");
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 130, -1));
+        jPanel1.add(txtciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 130, -1));
 
         jLabel11.setText("ZONA");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
-
-        jTextField8.setText("jTextField8");
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 120, -1));
+        jPanel1.add(txtzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 120, -1));
 
         jLabel12.setText("NRO. DOMICILIO");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
-
-        jTextField9.setText("jTextField9");
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 130, -1));
+        jPanel1.add(txtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 130, -1));
 
         jButton1.setText("SUBIR QR");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 110, -1));
 
         jButton2.setText("SUBIR FOTO");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 120, -1));
+        jPanel1.add(txtqr, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 80));
+        jPanel1.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 120, 80));
 
-        jTextField10.setText("jTextField10");
-        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 80));
-
-        jTextField11.setText("jTextField11");
-        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 120, 80));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablapropietario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablapropietario);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 67, 490, 390));
 
         jLabel13.setText("BUSQUEDA :");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
-
-        jTextField12.setText("jTextField12");
-        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 190, -1));
+        jPanel1.add(txtbuqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 190, -1));
 
         jButton3.setText("jButton3");
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
@@ -226,13 +211,13 @@ public class Propietario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbexpedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -248,18 +233,18 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tablapropietario;
+    private javax.swing.JTextField txtbuqueda;
+    private javax.swing.JTextField txtci;
+    private javax.swing.JTextField txtciudad;
+    private javax.swing.JTextField txtdomicilio;
+    private javax.swing.JTextField txtfoto;
+    private javax.swing.JTextField txtmaterno;
+    private javax.swing.JTextField txtnombre1;
+    private javax.swing.JTextField txtnombre2;
+    private javax.swing.JTextField txtpais;
+    private javax.swing.JTextField txtpaterno;
+    private javax.swing.JTextField txtqr;
+    private javax.swing.JTextField txtzona;
     // End of variables declaration//GEN-END:variables
 }
