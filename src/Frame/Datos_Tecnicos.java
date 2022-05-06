@@ -5,6 +5,11 @@
  */
 package Frame;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author JEFFERSON
@@ -71,7 +76,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,29 +180,37 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
         jLabel19.setText("jLabel19");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, -1, -1));
-
-        jTextField17.setText("jTextField17");
         jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 140, -1));
 
         jLabel20.setText("BUQUEDA :");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 60, 20));
         jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 240, -1));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("NUEVO");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
 
-        jButton2.setText("jButton2");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, -1, -1));
+        jButton2.setText("REGISTRAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
 
-        jButton3.setText("jButton3");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, -1, -1));
+        jButton3.setText("ACTUALIZAR");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, -1, -1));
 
-        jButton4.setText("jButton4");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+        jButton4.setText("MODIFICAR");
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
 
-        jButton5.setText("jButton5");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, -1, -1));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 550));
+        jButton6.setText("ELIMINAR");
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,9 +226,66 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+            insertarDatos();
+            limpiarCajas();
+            mostrarDatos();
+     
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        limpiarCajas();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    public void limpiarCajas() {
+        txtplaca.setText("");
+        txtclase.setText("");
+        txtmarca.setText("");
+        txtpais.setText("");
+        txttraccion.setText("");
+        txtcolor.setText("");
+        txtcapacidad.setText("");
+        txtradicatoria.setText("");
+        txttipo.setText("");
+        txtmodelo.setText("");
+        txtservicio.setText("");
+        txtcilindrada.setText("");
+        txtcarroceria.setText("");
+        txtnumero.setText("");
+        txtvehiculo.setText("");
+        txtgps.setText("");
+
+    }
+        public void mostrarDatos() {
+        String[] titulos = {"PLACA", "CLASE", "MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+            "RADICATOTIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO "};
+        String[] registros = new String[7];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from alumnos";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            while (rs.next()) {
+                registros[0] = rs.getString("idalumnos");
+                registros[1] = rs.getString("nombre");
+                registros[2] = rs.getString("apellido");
+                registros[3] = rs.getString("materia");
+                registros[4] = rs.getString("calificacion");
+                registros[5] = rs.getString("estatus");
+                modelo.addRow(registros);
+            }
+           // TablaAlumnos.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+
+        }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -253,7 +323,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
