@@ -87,8 +87,6 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
 
         jTextField5.setText("jTextField5");
         jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
-
-        jTextField6.setText("jTextField6");
         jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 70, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo.png"))); // NOI18N
