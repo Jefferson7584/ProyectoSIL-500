@@ -58,7 +58,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jLabel4.setText("Placa :");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setText("Poliza:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jLabel6.setText("jLabel6");
