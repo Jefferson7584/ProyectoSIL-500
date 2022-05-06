@@ -5,6 +5,8 @@
  */
 package Frame;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author JEFFERSON
@@ -42,6 +44,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btngenerar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,41 +61,44 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jLabel4.setText("Placa :");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        jLabel5.setText("Poliza:");
+        jLabel5.setText("Poliza :");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jLabel6.setText("numero placa :");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 80, -1));
 
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("numero Motor :");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("numero Chasis :");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, 10));
 
         jTextField1.setText("jTextField1");
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, 20));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 110, 20));
 
         jTextField2.setText("jTextField2");
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 110, -1));
 
         jTextField3.setText("jTextField3");
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
 
         jTextField4.setText("jTextField4");
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 110, -1));
 
         jTextField5.setText("jTextField5");
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
 
         jTextField6.setText("jTextField6");
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 80, 100));
+        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 70, 80));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\JEFFERSON\\Desktop\\fondo.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo.png"))); // NOI18N
         jLabel2.setMinimumSize(new java.awt.Dimension(375, 207));
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 200));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 320, 200));
+
+        btngenerar.setText("GENERAR");
+        jPanel1.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 120, 30));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,6 +151,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btngenerar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
