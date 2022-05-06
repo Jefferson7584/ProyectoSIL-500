@@ -68,7 +68,6 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         tabla_datos_tecnicos = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         txtgps = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtbusqueda = new javax.swing.JTextField();
@@ -177,9 +176,6 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jLabel18.setText("CODIGO GPS");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
         jPanel1.add(txtgps, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 440, 130, -1));
-
-        jLabel19.setText("jLabel19");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, -1, -1));
         jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 140, -1));
 
         jLabel20.setText("BUQUEDA :");
@@ -334,7 +330,6 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
