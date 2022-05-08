@@ -72,11 +72,11 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jTextField17 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtbusqueda = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnnuevo = new javax.swing.JButton();
+        bntregistrar = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -183,40 +183,40 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 60, 20));
         jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 240, -1));
 
-        jButton1.setText("NUEVO");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnnuevo.setText("NUEVO");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnnuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
+        jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
 
-        jButton2.setText("REGISTRAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bntregistrar.setText("REGISTRAR");
+        bntregistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bntregistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
+        jPanel1.add(bntregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
 
-        jButton3.setText("ACTUALIZAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnactualizar.setText("ACTUALIZAR");
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnactualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, -1, -1));
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, -1, -1));
 
         jButton4.setText("MODIFICAR");
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
 
-        jButton6.setText("ELIMINAR");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btneliminar.setText("ELIMINAR");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btneliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,32 +233,32 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bntregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntregistrarActionPerformed
         // TODO add your handling code here:
             insertarDatos();
             limpiarCajas();
             mostrarDatos();
      
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bntregistrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         // TODO add your handling code here:
         limpiarCajas();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnnuevoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         // TODO add your handling code here:
         actualizarDatos();
         limpiarCajas();
         mostrarDatos();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnactualizarActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
         eliminarRegistros();
         limpiarCajas();
         mostrarDatos();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btneliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,11 +413,11 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton bntregistrar;
+    private javax.swing.JButton btnactualizar;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnnuevo;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
