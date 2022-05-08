@@ -5,6 +5,7 @@
  */
 package Frame;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -199,12 +200,22 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
 
         jButton3.setText("ACTUALIZAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, -1, -1));
 
         jButton4.setText("MODIFICAR");
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
 
         jButton6.setText("ELIMINAR");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 570));
 
@@ -235,6 +246,20 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         limpiarCajas();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        actualizarDatos();
+        limpiarCajas();
+        mostrarDatos();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        eliminarRegistros();
+        limpiarCajas();
+        mostrarDatos();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,8 +284,8 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     }
         public void mostrarDatos() {
         String[] titulos = {"PLACA", "CLASE", "MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
-            "RADICATOTIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO "};
-        String[] registros = new String[7];
+            "RADICATOTIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO", "VEHICULO", "GPS" };
+        String[] registros = new String[16];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         String SQL = "select * from alumnos";
         try {
@@ -268,6 +293,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
+                //PARTE DE BASE DE DATOS MYSQL
                 registros[0] = rs.getString("idalumnos");
                 registros[1] = rs.getString("nombre");
                 registros[2] = rs.getString("apellido");
@@ -276,12 +302,84 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 registros[5] = rs.getString("estatus");
                 modelo.addRow(registros);
             }
-           // TablaAlumnos.setModel(modelo);
+            tabla_datos_tecnicos.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
         }
+        }
+        public void insertarDatos () {
+        try {
+            String SQL = "insert into alumnos(placa,clase,marca,pais,traccion, color, capacidad, radicatoria, tipo,modelo, sevicio,cilindrada,carroceria,numero,vehiculo,gps)values (?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(SQL);
+            pst.setString(1, txtplaca.getText());
+            pst.setString(2, txtclase.getText());
+            pst.setString(3, txtmarca.getText());
+            pst.setString(4, txtpais.getText());
+            pst.setString(5, txttraccion.getText());
+            pst.setString(6, txtcolor.getText());
+            pst.setString(7, txtcapacidad.getText());
+            pst.setString(8, txtradicatoria.getText());
+            pst.setString(9, txttipo.getText());
+            pst.setString(10, txtmodelo.getText());
+            pst.setString(11, txtservicio.getText());
+            pst.setString(12, txtcilindrada.getText());
+            pst.setString(13, txtcarroceria.getText());
+            pst.setString(14, txtnumero.getText());
+            pst.setString(15, txtvehiculo.getText());
+            pst.setString(16, txtgps.getText());
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Registro ERROR" + e.getMessage());
+        }
 
         }
+        public void actualizarDatos() {
+        try {
+            String SQL = "update alumnos set placa=?,clase=?,marca=?,pais=?,traccion=?,color=?,capacidad=?,radicatoria=?,tipo=?,modelo=?,sevicio=?,"
+                    +" cilindrada=?,carroceria=?,numero=?,vehiculo=?,gps=? where idalumnos=?";
+            int filaSeleccionado = tabla_datos_tecnicos.getSelectedRow();
+            String dao = (String) tabla_datos_tecnicos.getValueAt(filaSeleccionado, 0);
+            PreparedStatement pst = con.prepareStatement(SQL);
+            
+            pst.setString(1, txtplaca.getText());
+            pst.setString(2, txtclase.getText());
+            pst.setString(3, txtmarca.getText());
+            pst.setString(4, txtpais.getText());
+            pst.setString(5, txttraccion.getText());
+            pst.setString(6, txtcolor.getText());
+            pst.setString(7, txtcapacidad.getText());
+            pst.setString(8, txtradicatoria.getText());
+            pst.setString(9, txttipo.getText());
+            pst.setString(10, txtmodelo.getText());
+            pst.setString(11, txtservicio.getText());
+            pst.setString(12, txtcilindrada.getText());
+            pst.setString(13, txtcarroceria.getText());
+            pst.setString(14, txtnumero.getText());
+            pst.setString(15, txtvehiculo.getText());
+            pst.setString(16, txtgps.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Registro Editado ERROR" + e.getMessage());
+        }
+    }
+        public void eliminarRegistros() {
+        int filaSeleccionada = tabla_datos_tecnicos.getSelectedRow();
+        try {
+            String SQL = "delete from alumnos where idalumnos=" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
+            Statement st = con.createStatement();
+            int n = st.executeUpdate(SQL);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "Registro ELIMINADO");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Eliminar Registro ERROR" + e.getMessage());
+        }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
