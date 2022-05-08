@@ -77,6 +77,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         btnactualizar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -217,6 +218,14 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
+
+        btnbuscar.setText("BUSCAR");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,6 +269,34 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         mostrarDatos();
     }//GEN-LAST:event_btneliminarActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        // TODO add your handling code here:
+        filtrarDatos(txtbusqueda.getText());
+    }//GEN-LAST:event_btnbuscarActionPerformed
+ 
+    public void filtrarDatos(String valor) {
+        String[] titulos = {"ID", "Nombre", "Apellldo", "Materia", "calificacion", "Estatus"};
+        String[] registros = new String[7];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from alumnos where nombre like '%" + valor + "%'";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            while (rs.next()) {
+                registros[0] = rs.getString("idalumnos");
+                registros[1] = rs.getString("nombre");
+                registros[2] = rs.getString("apellido");
+                registros[3] = rs.getString("materia");
+                registros[4] = rs.getString("calificacion");
+                registros[5] = rs.getString("estatus");
+                modelo.addRow(registros);
+            }
+            tabla_datos_tecnicos.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -415,6 +452,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntregistrar;
     private javax.swing.JButton btnactualizar;
+    private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton jButton4;
