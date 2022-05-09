@@ -5,6 +5,16 @@
  */
 package Frame;
 
+import com.mysql.jdbc.Connection;
+import conexionSQL.conexionSQL;
+import java.io.InputStream;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author JEFFERSON
@@ -56,11 +66,12 @@ public class Propietario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablapropietario = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
-        txtbuqueda = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        txtbusqueda = new javax.swing.JTextField();
+        btnregistrar = new javax.swing.JButton();
+        btnmodificar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,19 +157,43 @@ public class Propietario extends javax.swing.JFrame {
 
         jLabel13.setText("BUSQUEDA :");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
-        jPanel1.add(txtbuqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 190, -1));
 
-        jButton3.setText("jButton3");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
+        txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbusquedaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 190, -1));
 
-        jButton4.setText("jButton4");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, -1));
+        btnregistrar.setText("REGISTRAR");
+        btnregistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
 
-        jButton5.setText("jButton5");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
+        btnmodificar.setText("MODIFICAR");
+        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, -1));
 
-        jButton6.setText("jButton6");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
+        btneliminar.setText("ELIMINAR");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, -1, -1));
+
+        btnbuscar.setText("BUSCAR");
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
+
+        btnactualizar.setText("ACTUALIZAR");
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,9 +210,162 @@ public class Propietario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
+        // TODO add your handling code here:
+         insertarDatos();
+         limpiarCajas();
+         mostrarDatos();
+    }//GEN-LAST:event_btnregistrarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        // TODO add your handling code here:
+        eliminarRegistros();
+        limpiarCajas();
+        mostrarDatos();
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        // TODO add your handling code here:
+        actualizarDatos();
+        limpiarCajas();
+        mostrarDatos();
+    }//GEN-LAST:event_btnactualizarActionPerformed
+
+    private void txtbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbusquedaActionPerformed
+        // TODO add your handling code here:
+        filtrarDatos(txtbusqueda.getText());
+    }//GEN-LAST:event_txtbusquedaActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    public void limpiarCajas() {
+        txtci.setText("");
+        cbexpedido.setSelectedItem(null);
+        txtnombre1.setText("");
+        txtnombre2.setText("");
+        txtpaterno.setText("");
+        txtmaterno.setText("");
+        txtpais.setText("");
+        txtciudad.setText("");
+        txtzona.setText("");
+        txtdomicilio.setText("");
+
+    }
+        public void mostrarDatos() {
+        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO"};
+        String[] registros = new String[10];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from alumnos";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            while (rs.next()) {
+                //PARTE DE BASE DE DATOS MYSQL
+                registros[0] = rs.getString("idalumnos");
+                registros[1] = rs.getString("nombre");
+                registros[2] = rs.getString("apellido");
+                registros[3] = rs.getString("materia");
+                registros[4] = rs.getString("calificacion");
+                registros[5] = rs.getString("estatus");
+                modelo.addRow(registros);
+            }
+            tablapropietario.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+        }
+        public void insertarDatos() {
+        try {
+            String SQL = "insert into alumnos(ci,expedido,nombre1,nombre2,paterno,materno,pais,ciudad,zona,domicilio)values (?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(SQL);
+            pst.setString(1, txtci.getText());
+
+            int seleccionado = cbexpedido.getSelectedIndex();
+            pst.setString(2, cbexpedido.getItemAt(seleccionado));
+            pst.setString(3, txtnombre1.getText());
+            pst.setString(4, txtnombre2.getText());
+            pst.setString(5, txtpaterno.getText());
+            pst.setString(6, txtmaterno.getText());
+            pst.setString(7, txtpais.getText());
+            pst.setString(8, txtciudad.getText());
+            pst.setString(9, txtzona.getText());
+            pst.setString(10, txtdomicilio.getText());
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Registro ERROR" + e.getMessage());
+        }
+        }
+    
+        public void actualizarDatos() {
+        try {
+            String SQL = "update alumnos set nombre=?,apellido=?,materia=?,calificacion=?,estatus=? where idalumnos=?";
+            int filaSeleccionado = tablapropietario.getSelectedRow();
+            String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
+            PreparedStatement pst = con.prepareStatement(SQL);
+
+            pst.setString(1, txtci.getText());
+
+            int seleccionado = cbexpedido.getSelectedIndex();
+            pst.setString(2, cbexpedido.getItemAt(seleccionado));
+            pst.setString(3, txtnombre1.getText());
+            pst.setString(4, txtnombre2.getText());
+            pst.setString(5, txtpaterno.getText());
+            pst.setString(6, txtmaterno.getText());
+            pst.setString(7, txtpais.getText());
+            pst.setString(8, txtciudad.getText());
+            pst.setString(9, txtzona.getText());
+            pst.setString(10,txtdomicilio.getText());
+            pst.setString(11, dao);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Registro Editado ERROR" + e.getMessage());
+        }
+    }
+        public void eliminarRegistros() {
+        int filaSeleccionada = tablapropietario.getSelectedRow();
+        try {
+            String SQL = "delete from alumnos where idalumnos=" + tablapropietario.getValueAt(filaSeleccionada, 0);
+            Statement st = con.createStatement();
+            int n = st.executeUpdate(SQL);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "Registro ELIMINADO");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Eliminar Registro ERROR" + e.getMessage());
+        }
+        }
+        //parte base de datos
+         public void filtrarDatos(String valor) {
+        String[] titulos = {"ID", "Nombre", "Apellldo", "Materia", "calificacion", "Estatus"};
+        String[] registros = new String[7];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from alumnos where nombre like '%" + valor + "%'";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            while (rs.next()) {
+                registros[0] = rs.getString("idalumnos");
+                registros[1] = rs.getString("nombre");
+                registros[2] = rs.getString("apellido");
+                registros[3] = rs.getString("materia");
+                registros[4] = rs.getString("calificacion");
+                registros[5] = rs.getString("estatus");
+                modelo.addRow(registros);
+            }
+            tablapropietario.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+    }
+         
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -211,13 +399,14 @@ public class Propietario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnactualizar;
+    private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnmodificar;
+    private javax.swing.JButton btnregistrar;
     private javax.swing.JComboBox<String> cbexpedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -234,7 +423,7 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablapropietario;
-    private javax.swing.JTextField txtbuqueda;
+    private javax.swing.JTextField txtbusqueda;
     private javax.swing.JTextField txtci;
     private javax.swing.JTextField txtciudad;
     private javax.swing.JTextField txtdomicilio;
