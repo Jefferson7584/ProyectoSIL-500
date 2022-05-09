@@ -37,12 +37,12 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtplaca = new javax.swing.JTextField();
+        txtpoliza = new javax.swing.JTextField();
+        txtnumero_placa = new javax.swing.JTextField();
+        txtnuemro_motor = new javax.swing.JTextField();
+        txtnumero_chasis = new javax.swing.JTextField();
+        txtfoto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btngenerar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -72,22 +72,12 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
 
         jLabel8.setText("numero Chasis :");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, 10));
-
-        jTextField1.setText("jTextField1");
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 110, 20));
-
-        jTextField2.setText("jTextField2");
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 110, -1));
-
-        jTextField3.setText("jTextField3");
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
-
-        jTextField4.setText("jTextField4");
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 110, -1));
-
-        jTextField5.setText("jTextField5");
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 70, 80));
+        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 110, 20));
+        jPanel2.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 110, -1));
+        jPanel2.add(txtnumero_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
+        jPanel2.add(txtnuemro_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 110, -1));
+        jPanel2.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
+        jPanel2.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 80, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo.png"))); // NOI18N
         jLabel2.setMinimumSize(new java.awt.Dimension(375, 207));
@@ -96,7 +86,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 320, 200));
 
         btngenerar.setText("GENERAR");
-        jPanel1.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 120, 30));
+        jPanel1.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 120, 30));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,11 +150,11 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtfoto;
+    private javax.swing.JTextField txtnuemro_motor;
+    private javax.swing.JTextField txtnumero_chasis;
+    private javax.swing.JTextField txtnumero_placa;
+    private javax.swing.JTextField txtplaca;
+    private javax.swing.JTextField txtpoliza;
     // End of variables declaration//GEN-END:variables
 }
