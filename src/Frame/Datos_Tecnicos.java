@@ -364,6 +364,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
             pst.setString(14, txtnumero.getText());
             pst.setString(15, txtvehiculo.getText());
             pst.setString(16, txtgps.getText());
+            
             pst.execute();
             
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
@@ -397,6 +398,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
             pst.setString(14, txtnumero.getText());
             pst.setString(15, txtvehiculo.getText());
             pst.setString(16, txtgps.getText());
+            pst.setString(17, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
