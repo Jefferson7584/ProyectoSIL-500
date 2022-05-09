@@ -20,7 +20,7 @@ public class conexionSQL {
       public Connection conexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conectar = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/escuela", "root", "");
+            conectar = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/db_carnet_propiedad", "root", "");
             JOptionPane.showMessageDialog(null, "Conexion Exitosa");
 
         } catch (Exception e) {
