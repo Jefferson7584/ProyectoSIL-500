@@ -21,11 +21,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Propietario extends javax.swing.JFrame {
 
+       conexionSQL cc = new conexionSQL();
+       Connection con = cc.conexion();
     /**
      * Creates new form Propietario
      */
     public Propietario() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(getBackground());
+        mostrarDatos();
+        
     }
 
     /**
@@ -133,6 +139,7 @@ public class Propietario extends javax.swing.JFrame {
 
         tablapropietario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {},
                 {},
                 {},
                 {},
