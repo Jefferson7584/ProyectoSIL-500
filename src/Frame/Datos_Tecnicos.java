@@ -5,6 +5,8 @@
  */
 package Frame;
 
+import com.mysql.jdbc.Connection;
+import conexionSQL.conexionSQL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -16,12 +18,18 @@ import javax.swing.table.DefaultTableModel;
  * @author JEFFERSON
  */
 public class Datos_Tecnicos extends javax.swing.JFrame {
-
+        
+        conexionSQL cc = new conexionSQL();
+        Connection con = cc.conexion();
     /**
      * Creates new form Datos_Tecnicos
      */
     public Datos_Tecnicos() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(getBackground());
+        mostrarDatos();
+        
     }
 
     /**
