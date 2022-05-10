@@ -356,11 +356,11 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"PLACA", "CLASE", "MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+        String[] titulos = {"placa_iv_gen", "", "MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
             "RADICATOTIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO", "VEHICULO", "GPS" };
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "Select * from db_carnet_propiedad";
+        String SQL = "Select * from tb_datos_tecnicos";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
