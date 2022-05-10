@@ -179,6 +179,11 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
             }
         ));
+        tabla_datos_tecnicos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_datos_tecnicosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_datos_tecnicos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 500, 340));
@@ -281,12 +286,35 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         // TODO add your handling code here:
         filtrarDatos(txtbusqueda.getText());
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void tabla_datos_tecnicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_datos_tecnicosMouseClicked
+        // TODO add your handling code here:
+           int filaSeleccionada = tabla_datos_tecnicos.rowAtPoint(evt.getPoint());
+        txtplaca.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 1).toString());
+        txtclase.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 2).toString());
+        txtmarca.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 3).toString());
+        txtpais.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 4).toString());
+        txttraccion.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 5).toString());
+        txtcolor.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 6).toString());
+        txtcapacidad.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 7).toString());
+        txtradicatoria.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 8).toString());
+        txttipo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 9).toString());
+        txtmodelo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 10).toString());
+        txtservicio.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 11).toString());
+        txtcilindrada.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 12).toString());
+        txtcarroceria.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 13).toString());
+        txtnumero.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 14).toString());
+        txtvehiculo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 15).toString());
+        txtgps.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 16).toString());
+        
+      //  cbMateria.setSelectedItem(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 3));
+    }//GEN-LAST:event_tabla_datos_tecnicosMouseClicked
  
     public void filtrarDatos(String valor) {
         String[] titulos = {"ID", "Nombre", "Apellldo", "Materia", "calificacion", "Estatus"};
         String[] registros = new String[7];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from alumnos where nombre like '%" + valor + "%'";
+        String SQL = "select * from db_carnet_propiedad where nombre like '%" + valor + "%'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -332,7 +360,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
             "RADICATOTIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO", "VEHICULO", "GPS" };
         String[] registros = new String[16];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from alumnos";
+        String SQL = "select * from db_carnet_propiedad";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
@@ -354,7 +382,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void insertarDatos () {
         try {
-            String SQL = "insert into alumnos(placa,clase,marca,pais,traccion, color, capacidad, radicatoria, tipo,modelo, sevicio,cilindrada,carroceria,numero,vehiculo,gps)values (?,?,?,?,?)";
+            String SQL = "insert into db_carnet_propiedad(placa,clase,marca,pais,traccion, color, capacidad, radicatoria, tipo,modelo, sevicio,cilindrada,carroceria,numero,vehiculo,gps)values (?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, txtplaca.getText());
             pst.setString(2, txtclase.getText());
@@ -384,7 +412,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void actualizarDatos() {
         try {
-            String SQL = "update alumnos set placa=?,clase=?,marca=?,pais=?,traccion=?,color=?,capacidad=?,radicatoria=?,tipo=?,modelo=?,sevicio=?,"
+            String SQL = "update db_carnet_propiedad set placa=?,clase=?,marca=?,pais=?,traccion=?,color=?,capacidad=?,radicatoria=?,tipo=?,modelo=?,sevicio=?,"
                     +" cilindrada=?,carroceria=?,numero=?,vehiculo=?,gps=? where idalumnos=?";
             int filaSeleccionado = tabla_datos_tecnicos.getSelectedRow();
             String dao = (String) tabla_datos_tecnicos.getValueAt(filaSeleccionado, 0);
@@ -417,7 +445,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tabla_datos_tecnicos.getSelectedRow();
         try {
-            String SQL = "delete from alumnos where idalumnos=" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from db_carnet_propiedad where idalumnos=" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
