@@ -312,7 +312,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
  
     public void filtrarDatos(String valor) {
         String[] titulos = {"ID", "Nombre", "Apellldo", "Materia", "calificacion", "Estatus"};
-        String[] registros = new String[7];
+        String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         String SQL = "select * from db_carnet_propiedad where nombre like '%" + valor + "%'";
         try {
@@ -358,9 +358,9 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         public void mostrarDatos() {
         String[] titulos = {"PLACA", "CLASE", "MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
             "RADICATOTIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO", "VEHICULO", "GPS" };
-        String[] registros = new String[16];
+        String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from db_carnet_propiedad";
+        String SQL = "Select * from db_carnet_propiedad";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
