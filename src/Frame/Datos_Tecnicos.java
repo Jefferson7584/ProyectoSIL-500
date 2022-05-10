@@ -367,12 +367,22 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
-                registros[0] = rs.getString("idalumnos");
-                registros[1] = rs.getString("nombre");
-                registros[2] = rs.getString("apellido");
-                registros[3] = rs.getString("materia");
-                registros[4] = rs.getString("calificacion");
-                registros[5] = rs.getString("estatus");
+                registros[0] = rs.getString("PLACA");
+                registros[1] = rs.getString("CLASE");
+                registros[2] = rs.getString("MARCA");
+                registros[3] = rs.getString("PAIS");
+                registros[4] = rs.getString("TRACCION");
+                registros[5] = rs.getString("COLOR");
+                registros[6] = rs.getString("CAPACIDAD DE CARGA");
+                registros[7] = rs.getString("RADICATORIA");
+                registros[8] = rs.getString("TIPO");
+                registros[9] = rs.getString("MODELO");
+                registros[10] = rs.getString("SERVICIO");
+                registros[11] = rs.getString("CILINDRADA");
+                registros[12] = rs.getString("TIPO DE CARROCERIA");
+                registros[13] = rs.getString("NUMERO");
+                registros[14] = rs.getString("VEHICULO");
+                registros[15] = rs.getString("GPS");
                 modelo.addRow(registros);
             }
             tabla_datos_tecnicos.setModel(modelo);
