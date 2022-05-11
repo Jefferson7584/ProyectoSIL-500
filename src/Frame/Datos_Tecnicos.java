@@ -383,7 +383,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 registros[13] = rs.getString("tipo_carroceria_dt");
                 registros[14] = rs.getString("nro_de_puertas_dt");
                 registros[15] = rs.getString("tipo_vehiculo_dt");
-                registros[16] = rs.getString("codigo_gps");
+                registros[16] = rs.getString("codigo_gps_dt");
                 modelo.addRow(registros);
             }
             tabla_datos_tecnicos.setModel(modelo);
