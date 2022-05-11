@@ -186,7 +186,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_datos_tecnicos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 500, 340));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 520, 340));
 
         jLabel18.setText("CODIGO GPS");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
@@ -356,33 +356,34 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"placa_iv_gen", "", "MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
-            "RADICATOTIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO", "VEHICULO", "GPS" };
+        String[] titulos = {"PLACA GENERAL", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+            "RADICATORIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO DE PUERTAS", "TIPO DE VEHICULO", "CODIGO GPS" };
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "Select * from tb_datos_tecnicos";
+        String SQL = "select * from tb_datos_tecnicos";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
-                registros[0] = rs.getString("PLACA");
-                registros[1] = rs.getString("CLASE");
-                registros[2] = rs.getString("MARCA");
-                registros[3] = rs.getString("PAIS");
-                registros[4] = rs.getString("TRACCION");
-                registros[5] = rs.getString("COLOR");
-                registros[6] = rs.getString("CAPACIDAD DE CARGA");
-                registros[7] = rs.getString("RADICATORIA");
-                registros[8] = rs.getString("TIPO");
-                registros[9] = rs.getString("MODELO");
-                registros[10] = rs.getString("SERVICIO");
-                registros[11] = rs.getString("CILINDRADA");
-                registros[12] = rs.getString("TIPO DE CARROCERIA");
-                registros[13] = rs.getString("NUMERO");
-                registros[14] = rs.getString("VEHICULO");
-                registros[15] = rs.getString("GPS");
+                registros[0] = rs.getString("placa_iv_gen");
+                registros[1] = rs.getString("placa_iv");
+                registros[2] = rs.getString("clase_dt");
+                registros[3] = rs.getString("marca_dt");
+                registros[4] = rs.getString("pais_dt");
+                registros[5] = rs.getString("traccion_dt");
+                registros[6] = rs.getString("color_dt");
+                registros[7] = rs.getString("capacidad_de_carga_dt");
+                registros[8] = rs.getString("radicatoria_dt");
+                registros[9] = rs.getString("tipo_dt");
+                registros[10] = rs.getString("modelo_dt");
+                registros[11] = rs.getString("servicio_dt");
+                registros[12] = rs.getString("cilindrada_dt");
+                registros[13] = rs.getString("tipo_carroceria_dt");
+                registros[14] = rs.getString("nro_de_puertas_dt");
+                registros[15] = rs.getString("tipo_vehiculo_dt");
+                registros[16] = rs.getString("codigo_gps");
                 modelo.addRow(registros);
             }
             tabla_datos_tecnicos.setModel(modelo);
