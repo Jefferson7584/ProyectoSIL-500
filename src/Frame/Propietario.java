@@ -280,6 +280,8 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText("");
         txtzona.setText("");
         txtdomicilio.setText("");
+        txtqr.setText("");
+        txtfoto.setText("");
 
     }
         public void mostrarDatos() {
@@ -342,7 +344,7 @@ public class Propietario extends javax.swing.JFrame {
         try {
             String SQL = "update tb_propietario set ci_prop=?,expedido_prop=?,nombre1_prop=?,nombre2_prop=?,apellido_paterno_prop=?,apellido_materno_prop=?,pais_prop=?,ciudad_prop=?,zona_prop=?,numero_domicilio_prop=?,codigo_qr_prop=?,foto_prop=?"; //where idalumnos=?
             int filaSeleccionado = tablapropietario.getSelectedRow();
-            String dato = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
+            String dato = (String) tablapropietario.getValueAt(filaSeleccionado, 1);
             PreparedStatement pst = con.prepareStatement(SQL);
 
             pst.setString(1, txtci.getText());
@@ -357,7 +359,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(10, txtdomicilio.getText());
             pst.setString(11,txtqr.getText());
             pst.setString(12,txtfoto.getText());
-            pst.setString(13, dato);
+            pst.setString(1, dato);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
