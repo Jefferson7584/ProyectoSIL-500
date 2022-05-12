@@ -77,7 +77,6 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         tabla_datos_tecnicos = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         txtgps = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtbusqueda = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
@@ -90,10 +89,13 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DATOS TECNICOS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 270, 20));
 
         jLabel3.setText("PLACA");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
@@ -112,7 +114,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jPanel1.add(txtpais, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, -1));
 
         jLabel7.setText("TRACCION");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 60, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 70, -1));
         jPanel1.add(txttraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 150, -1));
 
         jLabel8.setText("COLOR");
@@ -121,7 +123,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
         jLabel9.setText("CAPACIDA DE CARGA");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        jPanel1.add(txtcapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 20));
+        jPanel1.add(txtcapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 30));
 
         jLabel10.setText("RADICATORIA");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
@@ -191,7 +193,6 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jLabel18.setText("CODIGO GPS");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
         jPanel1.add(txtgps, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 440, 130, -1));
-        jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 140, -1));
 
         jLabel20.setText("BUQUEDA :");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 60, 20));
@@ -311,21 +312,33 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     }//GEN-LAST:event_tabla_datos_tecnicosMouseClicked
  
     public void filtrarDatos(String valor) {
-        String[] titulos = {"ID", "Nombre", "Apellldo", "Materia", "calificacion", "Estatus"};
+        String[] titulos = {"ID", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+            "RADICATORIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO DE PUERTAS", "TIPO DE VEHICULO", "CODIGO GPS"};
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from db_carnet_propiedad where nombre like '%" + valor + "%'";
+        String SQL = "select * from tb_datos_tecnicos where nombre like '%" + valor + "%'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-                registros[0] = rs.getString("idalumnos");
-                registros[1] = rs.getString("nombre");
-                registros[2] = rs.getString("apellido");
-                registros[3] = rs.getString("materia");
-                registros[4] = rs.getString("calificacion");
-                registros[5] = rs.getString("estatus");
+                registros[0] = rs.getString("id_datos_tecnicos_dt");
+                registros[1] = rs.getString("placa_iv");
+                registros[2] = rs.getString("clase_dt");
+                registros[3] = rs.getString("marca_dt");
+                registros[4] = rs.getString("pais_dt");
+                registros[5] = rs.getString("traccion_dt");
+                registros[6] = rs.getString("color_dt");
+                registros[7] = rs.getString("capacidad_de_carga_dt");
+                registros[8] = rs.getString("radicatoria_dt");
+                registros[9] = rs.getString("tipo_dt");
+                registros[10] = rs.getString("modelo_dt");
+                registros[11] = rs.getString("servicio_dt");
+                registros[12] = rs.getString("cilindrada_dt");
+                registros[13] = rs.getString("tipo_carroceria_dt");
+                registros[14] = rs.getString("nro_de_puertas_dt");
+                registros[15] = rs.getString("tipo_vehiculo_dt");
+                registros[16] = rs.getString("codigo_gps_dt");
                 modelo.addRow(registros);
             }
             tabla_datos_tecnicos.setModel(modelo);
@@ -356,7 +369,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"PLACA GENERAL", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+        String[] titulos = {"ID", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
             "RADICATORIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO DE PUERTAS", "TIPO DE VEHICULO", "CODIGO GPS" };
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
@@ -367,7 +380,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
-                registros[0] = rs.getString("placa_iv_gen");
+                registros[0] = rs.getString("id_datos_tecnicos_dt");
                 registros[1] = rs.getString("placa_iv");
                 registros[2] = rs.getString("clase_dt");
                 registros[3] = rs.getString("marca_dt");
@@ -393,15 +406,15 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void insertarDatos () {
         try {
-            String SQL = "insert into db_carnet_propiedad(placa,clase,marca,pais,traccion, color, capacidad, radicatoria, tipo,modelo, sevicio,cilindrada,carroceria,numero,vehiculo,gps)values (?,?,?,?,?)";
+            String SQL = "insert into tb_datos_tecnicos(clase_dt,marca_dt,pais_dt,traccion_dt,color_dt,capacidad_de_carga_dt,radicatoria_dt,tipo_dt,modelo_dt,sevicio_dt,cilindrada_dt,tipo_carroceria_dt,nro_de_puertas,tipo_vehiculo_dt,codigo_gps_dt)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setString(1, txtplaca.getText());
+           // pst.setString(1, txtplaca.getText());
             pst.setString(2, txtclase.getText());
             pst.setString(3, txtmarca.getText());
             pst.setString(4, txtpais.getText());
             pst.setString(5, txttraccion.getText());
             pst.setString(6, txtcolor.getText());
-            pst.setString(7, txtcapacidad.getText());
+            pst.setDouble(7, Double.parseDouble(txtcapacidad.getText()));    
             pst.setString(8, txtradicatoria.getText());
             pst.setString(9, txttipo.getText());
             pst.setString(10, txtmodelo.getText());
@@ -423,13 +436,12 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void actualizarDatos() {
         try {
-            String SQL = "update db_carnet_propiedad set placa=?,clase=?,marca=?,pais=?,traccion=?,color=?,capacidad=?,radicatoria=?,tipo=?,modelo=?,sevicio=?,"
-                    +" cilindrada=?,carroceria=?,numero=?,vehiculo=?,gps=? where idalumnos=?";
+            String SQL = "update tb_datos_tecnicos set clase_dt=?,marca_dt=?,pais_dt=?,traccion_dt=?,color_dt=?,capacidad_de_carga_dt=?,radicatoria_dt=?,tipo_dt=?,modelo_dt=?,sevicio_dt=?,cilindrada_dt=?,tipo_carroceria_dt=?,nro_de_puertas_dt=?,tipo_vehiculo_dt=?,codigo_gps_dt=? where id_datos_tecnicos_dt=?, placa_iv=?";
             int filaSeleccionado = tabla_datos_tecnicos.getSelectedRow();
-            String dao = (String) tabla_datos_tecnicos.getValueAt(filaSeleccionado, 0);
+            String dato = (String) tabla_datos_tecnicos.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
             
-            pst.setString(1, txtplaca.getText());
+          //  pst.setString(1, txtplaca.getText());
             pst.setString(2, txtclase.getText());
             pst.setString(3, txtmarca.getText());
             pst.setString(4, txtpais.getText());
@@ -445,7 +457,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
             pst.setString(14, txtnumero.getText());
             pst.setString(15, txtvehiculo.getText());
             pst.setString(16, txtgps.getText());
-            pst.setString(17, dao);
+            pst.setString(17, dato);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -456,7 +468,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tabla_datos_tecnicos.getSelectedRow();
         try {
-            String SQL = "delete from db_carnet_propiedad where idalumnos=" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from tb_datos_tecnicos where id_datos_tecnicos_dt=" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
@@ -526,7 +538,6 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField17;
     private javax.swing.JTable tabla_datos_tecnicos;
     private javax.swing.JTextField txtbusqueda;
     private javax.swing.JTextField txtcapacidad;
