@@ -286,7 +286,7 @@ public class Propietario extends javax.swing.JFrame {
     }
         public void mostrarDatos() {
         String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO","FOTO"};
-        String[] registros = new String[12];
+        String[] registros = new String[13];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         String SQL = "select * from tb_propietario";
         try {
@@ -342,9 +342,9 @@ public class Propietario extends javax.swing.JFrame {
     
         public void actualizarDatos() {
         try {
-            String SQL = "update tb_propietario set ci_prop=?,expedido_prop=?,nombre1_prop=?,nombre2_prop=?,apellido_paterno_prop=?,apellido_materno_prop=?,pais_prop=?,ciudad_prop=?,zona_prop=?,numero_domicilio_prop=?,codigo_qr_prop=?,foto_prop=?"; //where idalumnos=?
+            String SQL = "update tb_propietario set ci_prop=?,expedido_prop=?,nombre1_prop=?,nombre2_prop=?,apellido_paterno_prop=?,apellido_materno_prop=?,pais_prop=?,ciudad_prop=?,zona_prop=?,numero_domicilio_prop=?,codigo_qr_prop=?,foto_prop=? where ci_prop=?"; //where idalumnos=?
             int filaSeleccionado = tablapropietario.getSelectedRow();
-            String dato = (String) tablapropietario.getValueAt(filaSeleccionado, 1);
+            String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 1);
             PreparedStatement pst = con.prepareStatement(SQL);
 
             pst.setString(1, txtci.getText());
@@ -359,7 +359,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(10, txtdomicilio.getText());
             pst.setString(11,txtqr.getText());
             pst.setString(12,txtfoto.getText());
-            pst.setString(1, dato);
+            pst.setString(13, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -367,6 +367,7 @@ public class Propietario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Registro Editado ERROR" + e.getMessage());
         }
     }
+        
         public void eliminarRegistros() {
         int filaSeleccionada = tablapropietario.getSelectedRow();
         try {
