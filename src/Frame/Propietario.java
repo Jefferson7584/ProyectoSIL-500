@@ -316,18 +316,19 @@ public class Propietario extends javax.swing.JFrame {
         try {
             String SQL = "insert into tb_propietario(ci_prop,expedido_prop,nombre1_prop,nombre2_prop,apellido_paterno_prop,apellido_materno_prop,pais_prop,ciudad_prop,zona_prop,numero_domicilio_prop,codigo_qr_prop,foto_prop)values (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setString(0, txtci.getText());
-            pst.setString(1, txtexpedido.getText());
-            pst.setString(2, txtnombre1.getText());
-            pst.setString(3, txtnombre2.getText());
-            pst.setString(4, txtpaterno.getText());
-            pst.setString(5, txtmaterno.getText());
-            pst.setString(6, txtpais.getText());
-            pst.setString(7, txtciudad.getText());
-            pst.setString(8, txtzona.getText());
-            pst.setString(9, txtdomicilio.getText());
-            pst.setString(10, txtqr.getText());
-            pst.setString(11, txtfoto.getText());
+          //  pst.setString(0, txtci.getText());
+            pst.setString(1, txtci.getText());
+            pst.setString(2, txtexpedido.getText());
+            pst.setString(3, txtnombre1.getText());
+            pst.setString(4, txtnombre2.getText());
+            pst.setString(5, txtpaterno.getText());
+            pst.setString(6, txtmaterno.getText());
+            pst.setString(7, txtpais.getText());
+            pst.setString(8, txtciudad.getText());
+            pst.setString(9, txtzona.getText());
+            pst.setString(10, txtdomicilio.getText());
+            pst.setString(11, txtqr.getText());
+            pst.setString(12, txtfoto.getText());
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
