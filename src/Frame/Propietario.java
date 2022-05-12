@@ -345,19 +345,19 @@ public class Propietario extends javax.swing.JFrame {
             String dato = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
 
-            pst.setString(0, txtci.getText());
-            pst.setString(1, txtexpedido.getText());
-            pst.setString(2, txtnombre1.getText());
-            pst.setString(3, txtnombre2.getText());
-            pst.setString(4, txtpaterno.getText());
-            pst.setString(5, txtmaterno.getText());
-            pst.setString(6, txtpais.getText());
-            pst.setString(7, txtciudad.getText());
-            pst.setString(8, txtzona.getText());
-            pst.setString(9, txtdomicilio.getText());
-            pst.setString(10,txtqr.getText());
-            pst.setString(11,txtfoto.getText());
-            pst.setString(12, dato);
+            pst.setString(1, txtci.getText());
+            pst.setString(2, txtexpedido.getText());
+            pst.setString(3, txtnombre1.getText());
+            pst.setString(4, txtnombre2.getText());
+            pst.setString(5, txtpaterno.getText());
+            pst.setString(6, txtmaterno.getText());
+            pst.setString(7, txtpais.getText());
+            pst.setString(8, txtciudad.getText());
+            pst.setString(9, txtzona.getText());
+            pst.setString(10, txtdomicilio.getText());
+            pst.setString(11,txtqr.getText());
+            pst.setString(12,txtfoto.getText());
+            pst.setString(13, dato);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -368,7 +368,7 @@ public class Propietario extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tablapropietario.getSelectedRow();
         try {
-            String SQL = "delete from tb_propietaario where ci_prop=" + tablapropietario.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from tb_propietaario where ci_prop=" + tablapropietario.getValueAt(filaSeleccionada, 1);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
@@ -389,18 +389,18 @@ public class Propietario extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-               registros[0] = rs.getString("ci_prop");
-                registros[1] = rs.getString("expedido_prop");
-                registros[2] = rs.getString("nombre1_prop");
-                registros[3] = rs.getString("nombre2_prop");
-                registros[4] = rs.getString("apellido_paterno_prop");
-                registros[5] = rs.getString("apellido_materno_prop");
-                registros[6] = rs.getString("pais_prop");
-                registros[7] = rs.getString("ciudad_prop");
-                registros[8] = rs.getString("zona_prop");
-                registros[9] = rs.getString("numero_domicilio_prop");
-                registros[10] = rs.getString("codigo_qr_prop");
-                registros[11] = rs.getString("foto_prop");
+               registros[1] = rs.getString("ci_prop");
+                registros[2] = rs.getString("expedido_prop");
+                registros[3] = rs.getString("nombre1_prop");
+                registros[4] = rs.getString("nombre2_prop");
+                registros[5] = rs.getString("apellido_paterno_prop");
+                registros[6] = rs.getString("apellido_materno_prop");
+                registros[7] = rs.getString("pais_prop");
+                registros[8] = rs.getString("ciudad_prop");
+                registros[9] = rs.getString("zona_prop");
+                registros[10] = rs.getString("numero_domicilio_prop");
+                registros[11] = rs.getString("codigo_qr_prop");
+                registros[12] = rs.getString("foto_prop");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
