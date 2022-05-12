@@ -303,7 +303,7 @@ public class Propietario extends javax.swing.JFrame {
                 registros[7] = rs.getString("ciudad_prop");
                 registros[8] = rs.getString("zona_prop");
                 registros[9] = rs.getString("numero_domicilio_prop");
-                registros[10] = rs.getString("codigo_qr__prop");
+                registros[10] = rs.getString("codigo_qr_prop");
                 registros[11] = rs.getString("foto_prop");
                 modelo.addRow(registros);
             }
@@ -398,7 +398,7 @@ public class Propietario extends javax.swing.JFrame {
                 registros[7] = rs.getString("ciudad_prop");
                 registros[8] = rs.getString("zona_prop");
                 registros[9] = rs.getString("numero_domicilio_prop");
-                registros[10] = rs.getString("codigo_qr__prop");
+                registros[10] = rs.getString("codigo_qr_prop");
                 registros[11] = rs.getString("foto_prop");
                 modelo.addRow(registros);
             }
