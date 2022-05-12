@@ -158,6 +158,11 @@ public class Propietario extends javax.swing.JFrame {
 
             }
         ));
+        tablapropietario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablapropietarioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablapropietario);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 67, 490, 390));
@@ -244,6 +249,23 @@ public class Propietario extends javax.swing.JFrame {
         filtrarDatos(txtbusqueda.getText());
     }//GEN-LAST:event_txtbusquedaActionPerformed
 
+    private void tablapropietarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapropietarioMouseClicked
+        // TODO add your handling code here:
+         int filaSeleccionada = tablapropietario.rowAtPoint(evt.getPoint());
+        txtci.setText(tablapropietario.getValueAt(filaSeleccionada, 1).toString());
+        txtexpedido.setText(tablapropietario.getValueAt(filaSeleccionada, 2).toString());
+        txtnombre1.setText(tablapropietario.getValueAt(filaSeleccionada, 3).toString());
+        txtnombre2.setText(tablapropietario.getValueAt(filaSeleccionada, 4).toString());
+        txtpaterno.setText(tablapropietario.getValueAt(filaSeleccionada, 5).toString());
+        txtmaterno.setText(tablapropietario.getValueAt(filaSeleccionada, 6).toString());
+        txtpais.setText(tablapropietario.getValueAt(filaSeleccionada, 7).toString());
+        txtciudad.setText(tablapropietario.getValueAt(filaSeleccionada, 8).toString());
+        txtzona.setText(tablapropietario.getValueAt(filaSeleccionada, 9).toString());
+        txtdomicilio.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
+        txtqr.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
+        txtfoto.setText(tablapropietario.getValueAt(filaSeleccionada, 12).toString());
+    }//GEN-LAST:event_tablapropietarioMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -261,7 +283,7 @@ public class Propietario extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO QR","FOTO"};
+        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO","FOTO"};
         String[] registros = new String[12];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         String SQL = "select * from tb_propietario";
