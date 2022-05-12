@@ -292,7 +292,7 @@ public class Propietario extends javax.swing.JFrame {
         }
         public void insertarDatos() {
         try {
-            String SQL = "insert into tb_propietario(ci_prop,expedido_prop,nombre1_prop,nombre2_prop,apellido_paterno_prop,apellido_materno_prop,pais_prop,ciudad_prop,zona_prop,nuemro_domicilio_prop,codigo_qr_prop,foto_prop)values (?,?,?,?,?,?,?,?,?,?,?)";
+            String SQL = "insert into tb_propietario(ci_prop,expedido_prop,nombre1_prop,nombre2_prop,apellido_paterno_prop,apellido_materno_prop,pais_prop,ciudad_prop,zona_prop,numero_domicilio_prop,codigo_qr_prop,foto_prop)values (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(0, txtci.getText());
             pst.setString(1, txtexpedido.getText());
