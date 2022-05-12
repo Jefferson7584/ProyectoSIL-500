@@ -374,7 +374,7 @@ public class Propietario extends javax.swing.JFrame {
             String SQL = "delete from tb_propietario where ci_prop=" + tablapropietario.getValueAt(filaSeleccionada, 1);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
-            if (n > 0) {
+            if (n>=0) {
                 JOptionPane.showMessageDialog(null, "Registro ELIMINADO");
             }
         } catch (Exception e) {
