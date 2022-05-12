@@ -57,7 +57,6 @@ public class Propietario extends javax.swing.JFrame {
         txtmaterno = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtpais = new javax.swing.JTextField();
-        cbexpedido = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtciudad = new javax.swing.JTextField();
@@ -78,6 +77,7 @@ public class Propietario extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
+        txtexpedido = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,9 +110,6 @@ public class Propietario extends javax.swing.JFrame {
         jLabel8.setText("APELLIDO MATERNO");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, 20));
         jPanel1.add(txtpais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, -1));
-
-        cbexpedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cbexpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, -1));
 
         jLabel9.setText("PAIS");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
@@ -201,6 +198,7 @@ public class Propietario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
+        jPanel1.add(txtexpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,7 +246,7 @@ public class Propietario extends javax.swing.JFrame {
      */
     public void limpiarCajas() {
         txtci.setText("");
-        cbexpedido.setSelectedItem(null);
+        txtexpedido.setText("");
         txtnombre1.setText("");
         txtnombre2.setText("");
         txtpaterno.setText("");
@@ -260,22 +258,28 @@ public class Propietario extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO"};
-        String[] registros = new String[10];
+        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO QR","FOTO"};
+        String[] registros = new String[12];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from alumnos";
+        String SQL = "select * from tb_propietario";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
-                registros[0] = rs.getString("idalumnos");
-                registros[1] = rs.getString("nombre");
-                registros[2] = rs.getString("apellido");
-                registros[3] = rs.getString("materia");
-                registros[4] = rs.getString("calificacion");
-                registros[5] = rs.getString("estatus");
+                registros[0] = rs.getString("ci_prop");
+                registros[1] = rs.getString("expedido_prop");
+                registros[2] = rs.getString("nombre1_prop");
+                registros[3] = rs.getString("nombre2_prop");
+                registros[4] = rs.getString("apellido_paterno_prop");
+                registros[5] = rs.getString("apellido_materno_prop");
+                registros[6] = rs.getString("pais_prop");
+                registros[7] = rs.getString("ciudad_prop");
+                registros[8] = rs.getString("zona_prop");
+                registros[9] = rs.getString("numero_domicilio_prop");
+                registros[10] = rs.getString("codigo_qr__prop");
+                registros[11] = rs.getString("foto_prop");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
@@ -285,20 +289,20 @@ public class Propietario extends javax.swing.JFrame {
         }
         public void insertarDatos() {
         try {
-            String SQL = "insert into alumnos(ci,expedido,nombre1,nombre2,paterno,materno,pais,ciudad,zona,domicilio)values (?,?,?,?,?)";
+            String SQL = "insert into tb_propietario(ci_prop,expedido_prop,nombre1_prop,nombre2_prop,apellido_paterno_prop,apellido_materno_prop,pais_prop,ciudad_prop,zona_prop,nuemro_domicilio_prop,codigo_qr_prop,foto_prop)values (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setString(1, txtci.getText());
-
-            int seleccionado = cbexpedido.getSelectedIndex();
-            pst.setString(2, cbexpedido.getItemAt(seleccionado));
-            pst.setString(3, txtnombre1.getText());
-            pst.setString(4, txtnombre2.getText());
-            pst.setString(5, txtpaterno.getText());
-            pst.setString(6, txtmaterno.getText());
-            pst.setString(7, txtpais.getText());
-            pst.setString(8, txtciudad.getText());
-            pst.setString(9, txtzona.getText());
-            pst.setString(10, txtdomicilio.getText());
+            pst.setString(0, txtci.getText());
+            pst.setString(1, txtexpedido.getText());
+            pst.setString(2, txtnombre1.getText());
+            pst.setString(3, txtnombre2.getText());
+            pst.setString(4, txtpaterno.getText());
+            pst.setString(5, txtmaterno.getText());
+            pst.setString(6, txtpais.getText());
+            pst.setString(7, txtciudad.getText());
+            pst.setString(8, txtzona.getText());
+            pst.setString(9, txtdomicilio.getText());
+            pst.setString(10, txtqr.getText());
+            pst.setString(11, txtfoto.getText());
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
@@ -310,24 +314,24 @@ public class Propietario extends javax.swing.JFrame {
     
         public void actualizarDatos() {
         try {
-            String SQL = "update alumnos set nombre=?,apellido=?,materia=?,calificacion=?,estatus=? where idalumnos=?";
+            String SQL = "update tb_propietario set ci_prop=?,expedido_prop=?,nombre1_prop=?,nombre2_prop=?,apellido_paterno_prop=?,apellido_materno_prop=?,pais_prop=?,ciudad_prop=?,zona_prop=?,numero_domicilio_prop=?,codigo_qr_prop=?,foto_prop=?"; //where idalumnos=?
             int filaSeleccionado = tablapropietario.getSelectedRow();
-            String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
+            String dato = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
 
-            pst.setString(1, txtci.getText());
-
-            int seleccionado = cbexpedido.getSelectedIndex();
-            pst.setString(2, cbexpedido.getItemAt(seleccionado));
-            pst.setString(3, txtnombre1.getText());
-            pst.setString(4, txtnombre2.getText());
-            pst.setString(5, txtpaterno.getText());
-            pst.setString(6, txtmaterno.getText());
-            pst.setString(7, txtpais.getText());
-            pst.setString(8, txtciudad.getText());
-            pst.setString(9, txtzona.getText());
-            pst.setString(10,txtdomicilio.getText());
-            pst.setString(11, dao);
+            pst.setString(0, txtci.getText());
+            pst.setString(1, txtexpedido.getText());
+            pst.setString(2, txtnombre1.getText());
+            pst.setString(3, txtnombre2.getText());
+            pst.setString(4, txtpaterno.getText());
+            pst.setString(5, txtmaterno.getText());
+            pst.setString(6, txtpais.getText());
+            pst.setString(7, txtciudad.getText());
+            pst.setString(8, txtzona.getText());
+            pst.setString(9, txtdomicilio.getText());
+            pst.setString(10,txtqr.getText());
+            pst.setString(11,txtfoto.getText());
+            pst.setString(12, dato);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -338,7 +342,7 @@ public class Propietario extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tablapropietario.getSelectedRow();
         try {
-            String SQL = "delete from alumnos where idalumnos=" + tablapropietario.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from tb_propietaario where ci_prop=" + tablapropietario.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
@@ -350,21 +354,27 @@ public class Propietario extends javax.swing.JFrame {
         }
         //parte base de datos
          public void filtrarDatos(String valor) {
-        String[] titulos = {"ID", "Nombre", "Apellldo", "Materia", "calificacion", "Estatus"};
-        String[] registros = new String[7];
+        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO QR","FOTO"};
+        String[] registros = new String[12];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from alumnos where nombre like '%" + valor + "%'";
+        String SQL = "select * from tb_propietario where nombre like '%" + valor + "%'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-                registros[0] = rs.getString("idalumnos");
-                registros[1] = rs.getString("nombre");
-                registros[2] = rs.getString("apellido");
-                registros[3] = rs.getString("materia");
-                registros[4] = rs.getString("calificacion");
-                registros[5] = rs.getString("estatus");
+               registros[0] = rs.getString("ci_prop");
+                registros[1] = rs.getString("expedido_prop");
+                registros[2] = rs.getString("nombre1_prop");
+                registros[3] = rs.getString("nombre2_prop");
+                registros[4] = rs.getString("apellido_paterno_prop");
+                registros[5] = rs.getString("apellido_materno_prop");
+                registros[6] = rs.getString("pais_prop");
+                registros[7] = rs.getString("ciudad_prop");
+                registros[8] = rs.getString("zona_prop");
+                registros[9] = rs.getString("numero_domicilio_prop");
+                registros[10] = rs.getString("codigo_qr__prop");
+                registros[11] = rs.getString("foto_prop");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
@@ -411,7 +421,6 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnregistrar;
-    private javax.swing.JComboBox<String> cbexpedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -434,6 +443,7 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JTextField txtci;
     private javax.swing.JTextField txtciudad;
     private javax.swing.JTextField txtdomicilio;
+    private javax.swing.JTextField txtexpedido;
     private javax.swing.JTextField txtfoto;
     private javax.swing.JTextField txtmaterno;
     private javax.swing.JTextField txtnombre1;
