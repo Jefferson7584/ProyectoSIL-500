@@ -7,11 +7,14 @@ package Frame;
 
 import com.mysql.jdbc.Connection;
 import conexionSQL.conexionSQL;
+import java.io.File;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Locale;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -64,10 +67,8 @@ public class Propietario extends javax.swing.JFrame {
         txtzona = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtdomicilio = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        txtqr = new javax.swing.JTextField();
-        txtfoto = new javax.swing.JTextField();
+        btnQR = new javax.swing.JButton();
+        btnFoto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablapropietario = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
@@ -78,6 +79,8 @@ public class Propietario extends javax.swing.JFrame {
         btnactualizar = new javax.swing.JButton();
         txtexpedido = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,13 +132,21 @@ public class Propietario extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
         jPanel1.add(txtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 130, -1));
 
-        jButton1.setText("SUBIR QR");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 110, -1));
+        btnQR.setText("SUBIR QR");
+        btnQR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQRActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 110, -1));
 
-        jButton2.setText("SUBIR FOTO");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 120, -1));
-        jPanel1.add(txtqr, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 110, 80));
-        jPanel1.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 80));
+        btnFoto.setText("SUBIR FOTO");
+        btnFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFotoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 120, -1));
 
         tablapropietario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -212,6 +223,8 @@ public class Propietario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 90, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 120, 90));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 90));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 870, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -267,14 +280,34 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText(tablapropietario.getValueAt(filaSeleccionada, 8).toString());
         txtzona.setText(tablapropietario.getValueAt(filaSeleccionada, 9).toString());
         txtdomicilio.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
-        txtqr.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
-        txtfoto.setText(tablapropietario.getValueAt(filaSeleccionada, 12).toString());
+        jLabel14.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
+        jLabel15.setText(tablapropietario.getValueAt(filaSeleccionada, 12).toString());
     }//GEN-LAST:event_tablapropietarioMouseClicked
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         // TODO add your handling code here:
         limpiarCajas();
     }//GEN-LAST:event_btnnuevoActionPerformed
+
+    private void btnQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQRActionPerformed
+        // TODO add your handling code here:
+         JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String path = f.getAbsolutePath();
+        ImageIcon icon = new ImageIcon(path);
+        jLabel14.setIcon(icon);
+    }//GEN-LAST:event_btnQRActionPerformed
+
+    private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
+        // TODO add your handling code here:
+           JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String path = f.getAbsolutePath();
+        ImageIcon icon = new ImageIcon(path);
+        jLabel15.setIcon(icon);
+    }//GEN-LAST:event_btnFotoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,8 +323,8 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText("");
         txtzona.setText("");
         txtdomicilio.setText("");
-        txtqr.setText("");
-        txtfoto.setText("");
+        jLabel14.setText("");
+        jLabel15.setText("");
 
     }
         public void mostrarDatos() {
@@ -341,8 +374,8 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(8, txtciudad.getText());
             pst.setString(9, txtzona.getText());
             pst.setString(10, txtdomicilio.getText());
-            pst.setString(11, txtqr.getText());
-            pst.setString(12, txtfoto.getText());
+            pst.setString(11, jLabel14.getText());
+            pst.setString(12, jLabel15.getText());
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
@@ -369,8 +402,8 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(8, txtciudad.getText());
             pst.setString(9, txtzona.getText());
             pst.setString(10, txtdomicilio.getText());
-            pst.setString(11,txtqr.getText());
-            pst.setString(12,txtfoto.getText());
+            pst.setString(11,jLabel14.getText());
+            pst.setString(12,jLabel15.getText());
             pst.setString(13, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
@@ -457,18 +490,20 @@ public class Propietario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFoto;
+    private javax.swing.JButton btnQR;
     private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnprincipal;
     private javax.swing.JButton btnregistrar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -485,13 +520,11 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JTextField txtciudad;
     private javax.swing.JTextField txtdomicilio;
     private javax.swing.JTextField txtexpedido;
-    private javax.swing.JTextField txtfoto;
     private javax.swing.JTextField txtmaterno;
     private javax.swing.JTextField txtnombre1;
     private javax.swing.JTextField txtnombre2;
     private javax.swing.JTextField txtpais;
     private javax.swing.JTextField txtpaterno;
-    private javax.swing.JTextField txtqr;
     private javax.swing.JTextField txtzona;
     // End of variables declaration//GEN-END:variables
 }
