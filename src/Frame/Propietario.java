@@ -73,9 +73,8 @@ public class Propietario extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtbusqueda = new javax.swing.JTextField();
         btnregistrar = new javax.swing.JButton();
-        btnmodificar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        btnbuscar = new javax.swing.JButton();
+        btnprincipal = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
         txtexpedido = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
@@ -108,7 +107,7 @@ public class Propietario extends javax.swing.JFrame {
         jPanel1.add(txtpaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 120, -1));
 
         jLabel7.setText("APELLIDO PATERNO");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, -1, -1));
         jPanel1.add(txtmaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 130, -1));
 
         jLabel8.setText("APELLIDO MATERNO");
@@ -166,7 +165,7 @@ public class Propietario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablapropietario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 840, 200));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 850, 200));
 
         jLabel13.setText("BUSQUEDA :");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
@@ -184,10 +183,7 @@ public class Propietario extends javax.swing.JFrame {
                 btnregistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 100, -1));
-
-        btnmodificar.setText("MODIFICAR");
-        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, -1, -1));
+        jPanel1.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 100, -1));
 
         btneliminar.setText("ELIMINAR");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,10 +191,10 @@ public class Propietario extends javax.swing.JFrame {
                 btneliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, -1, -1));
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, -1, -1));
 
-        btnbuscar.setText("BUSCAR");
-        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, -1, -1));
+        btnprincipal.setText("MENU PRINCIPAL");
+        jPanel1.add(btnprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, -1, -1));
 
         btnactualizar.setText("ACTUALIZAR");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,10 +202,15 @@ public class Propietario extends javax.swing.JFrame {
                 btnactualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, -1, -1));
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, -1, -1));
         jPanel1.add(txtexpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, -1));
 
         btnnuevo.setText("NUEVO");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnuevoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 90, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 870, 550));
 
@@ -269,6 +270,11 @@ public class Propietario extends javax.swing.JFrame {
         txtqr.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
         txtfoto.setText(tablapropietario.getValueAt(filaSeleccionada, 12).toString());
     }//GEN-LAST:event_tablapropietarioMouseClicked
+
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+        // TODO add your handling code here:
+        limpiarCajas();
+    }//GEN-LAST:event_btnnuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,10 +458,9 @@ public class Propietario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnactualizar;
-    private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneliminar;
-    private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnnuevo;
+    private javax.swing.JButton btnprincipal;
     private javax.swing.JButton btnregistrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
