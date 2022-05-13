@@ -80,7 +80,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
 
         jLabel8.setText("numero Chasis :");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, 10));
-        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 110, 20));
+        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 110, 30));
         jPanel2.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 110, -1));
         jPanel2.add(txtnumero_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
         jPanel2.add(txtnuemro_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 110, -1));
