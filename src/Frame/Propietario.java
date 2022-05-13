@@ -78,6 +78,7 @@ public class Propietario extends javax.swing.JFrame {
         btnbuscar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
         txtexpedido = new javax.swing.JTextField();
+        btnnuevo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,54 +89,54 @@ public class Propietario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("PROPIETARIO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 200, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 200, -1));
 
         jLabel3.setText("C.I. ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
-        jPanel1.add(txtci, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 120, -1));
+        jPanel1.add(txtci, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 130, -1));
 
         jLabel4.setText("EXPEDIDO ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
-        jPanel1.add(txtnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 120, -1));
+        jPanel1.add(txtnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 120, -1));
 
         jLabel5.setText("NOMBRE 1");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
-        jPanel1.add(txtnombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 130, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
+        jPanel1.add(txtnombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 130, -1));
 
         jLabel6.setText("NOMBRE 2");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
-        jPanel1.add(txtpaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 120, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
+        jPanel1.add(txtpaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 120, -1));
 
         jLabel7.setText("APELLIDO PATERNO");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
-        jPanel1.add(txtmaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 130, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, -1, -1));
+        jPanel1.add(txtmaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 130, -1));
 
         jLabel8.setText("APELLIDO MATERNO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, 20));
-        jPanel1.add(txtpais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, 20));
+        jPanel1.add(txtpais, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 120, -1));
 
         jLabel9.setText("PAIS");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
 
         jLabel10.setText("CIUDAD");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
-        jPanel1.add(txtciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 130, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
+        jPanel1.add(txtciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 130, -1));
 
         jLabel11.setText("ZONA");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
-        jPanel1.add(txtzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 120, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, -1));
+        jPanel1.add(txtzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 120, -1));
 
         jLabel12.setText("NRO. DOMICILIO");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
-        jPanel1.add(txtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 130, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
+        jPanel1.add(txtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 130, -1));
 
         jButton1.setText("SUBIR QR");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 110, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 110, -1));
 
         jButton2.setText("SUBIR FOTO");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 120, -1));
-        jPanel1.add(txtqr, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 80));
-        jPanel1.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 120, 80));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 120, -1));
+        jPanel1.add(txtqr, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 110, 80));
+        jPanel1.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 80));
 
         tablapropietario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,17 +166,17 @@ public class Propietario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablapropietario);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 67, 490, 390));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 840, 200));
 
         jLabel13.setText("BUSQUEDA :");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
         txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtbusquedaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 190, -1));
+        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 190, -1));
 
         btnregistrar.setText("REGISTRAR");
         btnregistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -183,10 +184,10 @@ public class Propietario extends javax.swing.JFrame {
                 btnregistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
+        jPanel1.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 100, -1));
 
         btnmodificar.setText("MODIFICAR");
-        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, -1));
+        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, -1, -1));
 
         btneliminar.setText("ELIMINAR");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -194,10 +195,10 @@ public class Propietario extends javax.swing.JFrame {
                 btneliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, -1, -1));
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, -1, -1));
 
         btnbuscar.setText("BUSCAR");
-        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, -1, -1));
 
         btnactualizar.setText("ACTUALIZAR");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -205,8 +206,11 @@ public class Propietario extends javax.swing.JFrame {
                 btnactualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, -1, -1));
         jPanel1.add(txtexpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, -1));
+
+        btnnuevo.setText("NUEVO");
+        jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 90, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 870, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -285,8 +289,8 @@ public class Propietario extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO","FOTO"};
-        String[] registros = new String[13];
+        String[] titulos = {"CI","PLACA", "PLACA GENERAL","EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO","FOTO"};
+        String[] registros = new String[14];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         String SQL = "select * from tb_propietario";
         try {
@@ -296,17 +300,19 @@ public class Propietario extends javax.swing.JFrame {
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
                 registros[0] = rs.getString("ci_prop");
-                registros[1] = rs.getString("expedido_prop");
-                registros[2] = rs.getString("nombre1_prop");
-                registros[3] = rs.getString("nombre2_prop");
-                registros[4] = rs.getString("apellido_paterno_prop");
-                registros[5] = rs.getString("apellido_materno_prop");
-                registros[6] = rs.getString("pais_prop");
-                registros[7] = rs.getString("ciudad_prop");
-                registros[8] = rs.getString("zona_prop");
-                registros[9] = rs.getString("numero_domicilio_prop");
-                registros[10] = rs.getString("codigo_qr_prop");
-                registros[11] = rs.getString("foto_prop");
+                registros[1] = rs.getString("placa_iv");
+                registros[2] = rs.getString("placa_iv_gen");
+                registros[3] = rs.getString("expedido_prop");
+                registros[4] = rs.getString("nombre1_prop");
+                registros[5] = rs.getString("nombre2_prop");
+                registros[6] = rs.getString("apellido_paterno_prop");
+                registros[7] = rs.getString("apellido_materno_prop");
+                registros[8] = rs.getString("pais_prop");
+                registros[9] = rs.getString("ciudad_prop");
+                registros[10] = rs.getString("zona_prop");
+                registros[11] = rs.getString("numero_domicilio_prop");
+                registros[12] = rs.getString("codigo_qr_prop");
+                registros[13] = rs.getString("foto_prop");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
@@ -342,9 +348,9 @@ public class Propietario extends javax.swing.JFrame {
     
         public void actualizarDatos() {
         try {
-            String SQL = "update tb_propietario set ci_prop=?,expedido_prop=?,nombre1_prop=?,nombre2_prop=?,apellido_paterno_prop=?,apellido_materno_prop=?,pais_prop=?,ciudad_prop=?,zona_prop=?,numero_domicilio_prop=?,codigo_qr_prop=?,foto_prop=? where ci_prop=?"; //where idalumnos=?
+            String SQL = "update tb_propietario set ci_prop=?,expedido_prop=?,nombre1_prop=?,nombre2_prop=?,apellido_paterno_prop=?,apellido_materno_prop=?,pais_prop=?,ciudad_prop=?,zona_prop=?,numero_domicilio_prop=?,codigo_qr_prop=?,foto_prop=? where placa_iv=?,placa_iv_gen=?"; //where idalumnos=?
             int filaSeleccionado = tablapropietario.getSelectedRow();
-            String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 1);
+            String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
 
             pst.setString(1, txtci.getText());
@@ -371,10 +377,10 @@ public class Propietario extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tablapropietario.getSelectedRow();
         try {
-            String SQL = "delete from tb_propietario where ci_prop=" + tablapropietario.getValueAt(filaSeleccionada, 1);
+            String SQL = "delete from tb_propietario where ci_prop=" + tablapropietario.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
-            if (n>=0) {
+            if (n > 0) {
                 JOptionPane.showMessageDialog(null, "Registro ELIMINADO");
             }
         } catch (Exception e) {
@@ -386,24 +392,24 @@ public class Propietario extends javax.swing.JFrame {
         String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO QR","FOTO"};
         String[] registros = new String[12];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from tb_propietario where nombre like '%" + valor + "%'";
+        String SQL = "select * from tb_propietario where ci_prop like '%" + valor + "%'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-               registros[1] = rs.getString("ci_prop");
-                registros[2] = rs.getString("expedido_prop");
-                registros[3] = rs.getString("nombre1_prop");
-                registros[4] = rs.getString("nombre2_prop");
-                registros[5] = rs.getString("apellido_paterno_prop");
-                registros[6] = rs.getString("apellido_materno_prop");
-                registros[7] = rs.getString("pais_prop");
-                registros[8] = rs.getString("ciudad_prop");
-                registros[9] = rs.getString("zona_prop");
-                registros[10] = rs.getString("numero_domicilio_prop");
-                registros[11] = rs.getString("codigo_qr_prop");
-                registros[12] = rs.getString("foto_prop");
+               registros[0] = rs.getString("ci_prop");
+                registros[1] = rs.getString("expedido_prop");
+                registros[2] = rs.getString("nombre1_prop");
+                registros[3] = rs.getString("nombre2_prop");
+                registros[4] = rs.getString("apellido_paterno_prop");
+                registros[5] = rs.getString("apellido_materno_prop");
+                registros[6] = rs.getString("pais_prop");
+                registros[7] = rs.getString("ciudad_prop");
+                registros[8] = rs.getString("zona_prop");
+                registros[9] = rs.getString("numero_domicilio_prop");
+                registros[101] = rs.getString("codigo_qr_prop");
+                registros[11] = rs.getString("foto_prop");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
@@ -449,6 +455,7 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnmodificar;
+    private javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnregistrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
