@@ -5,7 +5,12 @@
  */
 package Frame;
 
+import java.awt.Graphics;
+import java.awt.PrintJob;
 import java.awt.Toolkit;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -42,13 +47,16 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         txtnumero_placa = new javax.swing.JTextField();
         txtnuemro_motor = new javax.swing.JTextField();
         txtnumero_chasis = new javax.swing.JTextField();
-        txtfoto = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btngenerar = new javax.swing.JButton();
+        btnfoto = new javax.swing.JButton();
+        btnPrincipal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setMinimumSize(new java.awt.Dimension(375, 207));
@@ -77,7 +85,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel2.add(txtnumero_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
         jPanel2.add(txtnuemro_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 110, -1));
         jPanel2.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
-        jPanel2.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 80, 80));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 70, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo.png"))); // NOI18N
         jLabel2.setMinimumSize(new java.awt.Dimension(375, 207));
@@ -86,8 +94,24 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 320, 200));
 
         btngenerar.setText("GENERAR");
-        jPanel1.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 120, 30));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 490));
+        btngenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngenerarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 120, 30));
+
+        btnfoto.setText("SUBIR IMAGEN");
+        btnfoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfotoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 130, 30));
+
+        btnPrincipal.setText("MENU PRINCIPAL");
+        jPanel1.add(btnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,6 +126,26 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnfotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfotoActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String path = f.getAbsolutePath();
+        ImageIcon icon = new ImageIcon(path);
+        jLabel9.setIcon(icon);
+    }//GEN-LAST:event_btnfotoActionPerformed
+
+    private void btngenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngenerarActionPerformed
+        // TODO add your handling code here:
+        Toolkit tkp = jPanel2.getToolkit();
+        PrintJob pjp = tkp.getPrintJob(this, null, null);
+        Graphics g = pjp.getGraphics();
+        jPanel2.paintAll(g);
+        g.dispose();
+        pjp.end();
+    }//GEN-LAST:event_btngenerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,6 +183,8 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPrincipal;
+    private javax.swing.JButton btnfoto;
     private javax.swing.JButton btngenerar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -148,9 +194,9 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtfoto;
     private javax.swing.JTextField txtnuemro_motor;
     private javax.swing.JTextField txtnumero_chasis;
     private javax.swing.JTextField txtnumero_placa;
