@@ -52,6 +52,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         btngenerar = new javax.swing.JButton();
         btnfoto = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
+        btnnuevo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,6 +122,14 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
 
         btnPrincipal.setText("MENU PRINCIPAL");
         jPanel1.add(btnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
+
+        btnnuevo.setText("NUEVO");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnuevoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,6 +166,20 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         pjp.end();
     }//GEN-LAST:event_btngenerarActionPerformed
 
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+        // TODO add your handling code here:
+        limpiarCajas();
+    }//GEN-LAST:event_btnnuevoActionPerformed
+
+     public void limpiarCajas() {
+        txtplaca.setText("");
+        txtpoliza.setText("");
+        txtnumero_placa.setText("");
+        txtnuemro_motor.setText("");
+        txtnumero_chasis.setText("");
+        jLabel9.setText("");
+       
+    }
     /**
      * @param args the command line arguments
      */
@@ -196,6 +219,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnfoto;
     private javax.swing.JButton btngenerar;
+    private javax.swing.JButton btnnuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
