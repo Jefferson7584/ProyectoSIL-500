@@ -82,9 +82,8 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         btnnuevo = new javax.swing.JButton();
         bntregistrar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        btnbuscar = new javax.swing.JButton();
+        btnPrincipal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -188,7 +187,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_datos_tecnicos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 990, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 1000, 150));
 
         jLabel18.setText("CODIGO GPS");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
@@ -196,6 +195,12 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
         jLabel20.setText("BUQUEDA :");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 60, 20));
+
+        txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbusquedaActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 240, -1));
 
         btnnuevo.setText("NUEVO");
@@ -212,7 +217,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 bntregistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(bntregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, -1, -1));
+        jPanel1.add(bntregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, -1, -1));
 
         btnactualizar.setText("ACTUALIZAR");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -220,10 +225,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 btnactualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, -1, -1));
-
-        jButton4.setText("MODIFICAR");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, -1, -1));
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, -1, -1));
 
         btneliminar.setText("ELIMINAR");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -231,16 +233,16 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 btneliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, -1, -1));
 
-        btnbuscar.setText("BUSCAR");
-        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnPrincipal.setText("MENU PRINCIPAL");
+        btnPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscarActionPerformed(evt);
+                btnPrincipalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 500, -1, -1));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 570));
+        jPanel1.add(btnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 500, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,10 +285,10 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         mostrarDatos();
     }//GEN-LAST:event_btneliminarActionPerformed
 
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         // TODO add your handling code here:
-        filtrarDatos(txtbusqueda.getText());
-    }//GEN-LAST:event_btnbuscarActionPerformed
+       
+    }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void tabla_datos_tecnicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_datos_tecnicosMouseClicked
         // TODO add your handling code here:
@@ -310,6 +312,11 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         
       //  cbMateria.setSelectedItem(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 3));
     }//GEN-LAST:event_tabla_datos_tecnicosMouseClicked
+
+    private void txtbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbusquedaActionPerformed
+        // TODO add your handling code here:
+         filtrarDatos(txtbusqueda.getText());
+    }//GEN-LAST:event_txtbusquedaActionPerformed
  
     public void filtrarDatos(String valor) {
         String[] titulos = {"PLACA GENERAL", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
@@ -512,11 +519,10 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntregistrar;
+    private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnactualizar;
-    private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnnuevo;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
