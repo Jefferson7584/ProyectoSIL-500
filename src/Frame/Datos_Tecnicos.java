@@ -312,17 +312,17 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     }//GEN-LAST:event_tabla_datos_tecnicosMouseClicked
  
     public void filtrarDatos(String valor) {
-        String[] titulos = {"ID", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+        String[] titulos = {"PLACA GENERAL", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
             "RADICATORIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO DE PUERTAS", "TIPO DE VEHICULO", "CODIGO GPS"};
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from tb_datos_tecnicos where nombre like '%" + valor + "%'";
+        String SQL = "select * from tb_datos_tecnicos where placa_iv like '%" + valor + "%'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-                registros[0] = rs.getString("id_datos_tecnicos_dt");
+                registros[0] = rs.getString("placa_iv_gen");
                 registros[1] = rs.getString("placa_iv");
                 registros[2] = rs.getString("clase_dt");
                 registros[3] = rs.getString("marca_dt");
@@ -369,7 +369,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"ID", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+        String[] titulos = {"PLACA GENERAL", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
             "RADICATORIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO DE PUERTAS", "TIPO DE VEHICULO", "CODIGO GPS" };
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
@@ -380,7 +380,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
-                registros[0] = rs.getString("id_datos_tecnicos_dt");
+                registros[0] = rs.getString("placa_iv_gen");
                 registros[1] = rs.getString("placa_iv");
                 registros[2] = rs.getString("clase_dt");
                 registros[3] = rs.getString("marca_dt");
@@ -406,9 +406,9 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void insertarDatos () {
         try {
-            String SQL = "insert into tb_datos_tecnicos(clase_dt,marca_dt,pais_dt,traccion_dt,color_dt,capacidad_de_carga_dt,radicatoria_dt,tipo_dt,modelo_dt,sevicio_dt,cilindrada_dt,tipo_carroceria_dt,nro_de_puertas,tipo_vehiculo_dt,codigo_gps_dt)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String SQL = "insert into tb_datos_tecnicos(placa_iv,clase_dt,marca_dt,pais_dt,traccion_dt,color_dt,capacidad_de_carga_dt,radicatoria_dt,tipo_dt,modelo_dt,sevicio_dt,cilindrada_dt,tipo_carroceria_dt,nro_de_puertas,tipo_vehiculo_dt,codigo_gps_dt)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
-           // pst.setString(1, txtplaca.getText());
+            pst.setString(1, txtplaca.getText());
             pst.setString(2, txtclase.getText());
             pst.setString(3, txtmarca.getText());
             pst.setString(4, txtpais.getText());
@@ -436,12 +436,12 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void actualizarDatos() {
         try {
-            String SQL = "update tb_datos_tecnicos set clase_dt=?,marca_dt=?,pais_dt=?,traccion_dt=?,color_dt=?,capacidad_de_carga_dt=?,radicatoria_dt=?,tipo_dt=?,modelo_dt=?,sevicio_dt=?,cilindrada_dt=?,tipo_carroceria_dt=?,nro_de_puertas_dt=?,tipo_vehiculo_dt=?,codigo_gps_dt=? where id_datos_tecnicos_dt=?, placa_iv=?";
+            String SQL = "update tb_datos_tecnicos set placa_iv=?,clase_dt=?,marca_dt=?,pais_dt=?,traccion_dt=?,color_dt=?,capacidad_de_carga_dt=?,radicatoria_dt=?,tipo_dt=?,modelo_dt=?,sevicio_dt=?,cilindrada_dt=?,tipo_carroceria_dt=?,nro_de_puertas_dt=?,tipo_vehiculo_dt=?,codigo_gps_dt=? where placa_iv_gen=?";
             int filaSeleccionado = tabla_datos_tecnicos.getSelectedRow();
-            String dato = (String) tabla_datos_tecnicos.getValueAt(filaSeleccionado, 0);
+            String dao = (String) tabla_datos_tecnicos.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
             
-          //  pst.setString(1, txtplaca.getText());
+            pst.setString(1, txtplaca.getText());
             pst.setString(2, txtclase.getText());
             pst.setString(3, txtmarca.getText());
             pst.setString(4, txtpais.getText());
@@ -457,7 +457,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
             pst.setString(14, txtnumero.getText());
             pst.setString(15, txtvehiculo.getText());
             pst.setString(16, txtgps.getText());
-            pst.setString(17, dato);
+            pst.setString(17, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -468,7 +468,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tabla_datos_tecnicos.getSelectedRow();
         try {
-            String SQL = "delete from tb_datos_tecnicos where id_datos_tecnicos_dt=" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from tb_datos_tecnicos where placa_iv_gen=?" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
