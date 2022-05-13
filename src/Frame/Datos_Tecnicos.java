@@ -95,7 +95,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DATOS TECNICOS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 270, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 270, 20));
 
         jLabel3.setText("PLACA");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
@@ -110,52 +110,52 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jPanel1.add(txtmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 140, -1));
 
         jLabel6.setText("PAIS");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
-        jPanel1.add(txtpais, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, -1, -1));
+        jPanel1.add(txtpais, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 140, -1));
 
         jLabel7.setText("TRACCION");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 70, -1));
-        jPanel1.add(txttraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 150, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 70, -1));
+        jPanel1.add(txttraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 150, -1));
 
         jLabel8.setText("COLOR");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
-        jPanel1.add(txtcolor, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 160, 140, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, -1, -1));
+        jPanel1.add(txtcolor, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 140, -1));
 
         jLabel9.setText("CAPACIDA DE CARGA");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        jPanel1.add(txtcapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jPanel1.add(txtcapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, 30));
 
         jLabel10.setText("RADICATORIA");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
-        jPanel1.add(txtradicatoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 150, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
+        jPanel1.add(txtradicatoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 150, -1));
 
         jLabel11.setText("TIPO");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
-        jPanel1.add(txttipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 140, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
+        jPanel1.add(txttipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 140, -1));
 
         jLabel12.setText("MODELO");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
-        jPanel1.add(txtmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 140, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
+        jPanel1.add(txtmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 140, -1));
 
         jLabel13.setText("SERVICIO");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
-        jPanel1.add(txtservicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 150, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, -1, -1));
+        jPanel1.add(txtservicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 150, -1));
 
         jLabel14.setText("CILINDRADA");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
-        jPanel1.add(txtcilindrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 140, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 130, -1, -1));
+        jPanel1.add(txtcilindrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 140, -1));
 
         jLabel15.setText("TIPO DE CARROCERIA");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
-        jPanel1.add(txtcarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 140, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        jPanel1.add(txtcarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 140, -1));
 
         jLabel16.setText("NUMERO DE PUERTAS");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
-        jPanel1.add(txtnumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 150, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
+        jPanel1.add(txtnumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 150, -1));
 
         jLabel17.setText("TIPO DE VEHICULO");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
-        jPanel1.add(txtvehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 140, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
+        jPanel1.add(txtvehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 140, -1));
 
         tabla_datos_tecnicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,15 +188,15 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_datos_tecnicos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 520, 340));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 990, 150));
 
         jLabel18.setText("CODIGO GPS");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
-        jPanel1.add(txtgps, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 440, 130, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        jPanel1.add(txtgps, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 140, -1));
 
         jLabel20.setText("BUQUEDA :");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 60, 20));
-        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 240, -1));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 60, 20));
+        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 240, -1));
 
         btnnuevo.setText("NUEVO");
         btnnuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +204,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 btnnuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
+        jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, -1, -1));
 
         bntregistrar.setText("REGISTRAR");
         bntregistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +212,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 bntregistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(bntregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
+        jPanel1.add(bntregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, -1, -1));
 
         btnactualizar.setText("ACTUALIZAR");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -220,10 +220,10 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 btnactualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, -1, -1));
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, -1, -1));
 
         jButton4.setText("MODIFICAR");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, -1, -1));
 
         btneliminar.setText("ELIMINAR");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +231,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 btneliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
 
         btnbuscar.setText("BUSCAR");
         btnbuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +239,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, -1, -1));
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 500, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
