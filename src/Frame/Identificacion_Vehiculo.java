@@ -82,19 +82,19 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, 10));
 
         txtplaca.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 110, 30));
+        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 110, 30));
 
         txtpoliza.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 110, -1));
+        jPanel2.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 110, -1));
 
         txtnumero_placa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtnumero_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 110, -1));
+        jPanel2.add(txtnumero_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 110, -1));
 
         txtnuemro_motor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtnuemro_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 110, -1));
+        jPanel2.add(txtnuemro_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 110, -1));
 
         txtnumero_chasis.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 110, -1));
+        jPanel2.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 110, -1));
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 70, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo.png"))); // NOI18N
