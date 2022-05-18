@@ -473,7 +473,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tabla_datos_tecnicos.getSelectedRow();
         try {
-            String SQL = "delete from tb_datos_tecnicos where reg_datos_tec=?" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from tb_datos_tecnicos where reg_datos_tec=" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
