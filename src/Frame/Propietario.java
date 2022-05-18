@@ -390,7 +390,7 @@ public class Propietario extends javax.swing.JFrame {
             String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
 
-            //pst.setString(1, txtci.getText());
+            pst.setString(0, txtci.getText());
             pst.setString(1, txtexpedido.getText());
             pst.setString(2, txtnombre1.getText());
             pst.setString(3, txtnombre2.getText());
