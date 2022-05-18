@@ -413,22 +413,22 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         try {
             String SQL = "insert into tb_datos_tecnicos(reg_datos_tec,clase,marca,pais,traccion,color,capacidad_de_carga,radicatoria,tipo,modelo,sevicio,cilindrada,tipo_carroceria,nro_de_puertas,tipo_vehiculo,codigo_gps)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
-            //pst.setString(0, txtregistro.getText());
-            pst.setString(1, txtclase.getText());
-            pst.setString(2, txtmarca.getText());
-            pst.setString(3, txtpais.getText());
-            pst.setString(4, txttraccion.getText());
-            pst.setString(5, txtcolor.getText());
-            pst.setDouble(6, Double.parseDouble(txtcapacidad.getText()));    
-            pst.setString(7, txtradicatoria.getText());
-            pst.setString(8, txttipo.getText());
-            pst.setString(9, txtmodelo.getText());
-            pst.setString(10, txtservicio.getText());
-            pst.setString(11, txtcilindrada.getText());
-            pst.setString(12, txtcarroceria.getText());
-            pst.setString(13, txtnumero.getText());
-            pst.setString(14, txtvehiculo.getText());
-            pst.setString(15, txtgps.getText());
+            pst.setString(1, txtregistro.getText());
+            pst.setString(2, txtclase.getText());
+            pst.setString(3, txtmarca.getText());
+            pst.setString(4, txtpais.getText());
+            pst.setString(5, txttraccion.getText());
+            pst.setString(6, txtcolor.getText());
+            pst.setDouble(7, Double.parseDouble(txtcapacidad.getText()));    
+            pst.setString(8, txtradicatoria.getText());
+            pst.setString(9, txttipo.getText());
+            pst.setString(10, txtmodelo.getText());
+            pst.setString(11, txtservicio.getText());
+            pst.setString(12, txtcilindrada.getText());
+            pst.setString(13, txtcarroceria.getText());
+            pst.setString(14, txtnumero.getText());
+            pst.setString(15, txtvehiculo.getText());
+            pst.setString(16, txtgps.getText());
             
             pst.execute();
             
