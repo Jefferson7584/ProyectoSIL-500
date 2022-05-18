@@ -44,7 +44,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtplaca = new javax.swing.JTextField();
+        txtregistro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtclase = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -96,9 +96,9 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jLabel2.setText("DATOS TECNICOS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 270, 20));
 
-        jLabel3.setText("PLACA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
-        jPanel1.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 140, -1));
+        jLabel3.setText("REGISTRO DATOS TECNICOS");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jPanel1.add(txtregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 140, -1));
 
         jLabel4.setText("CLASE");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
@@ -190,7 +190,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 1000, 150));
 
         jLabel18.setText("CODIGO GPS");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
         jPanel1.add(txtgps, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 140, -1));
 
         jLabel20.setText("BUQUEDA :");
@@ -293,22 +293,22 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     private void tabla_datos_tecnicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_datos_tecnicosMouseClicked
         // TODO add your handling code here:
            int filaSeleccionada = tabla_datos_tecnicos.rowAtPoint(evt.getPoint());
-        txtplaca.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 1).toString());
-        txtclase.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 2).toString());
-        txtmarca.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 3).toString());
-        txtpais.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 4).toString());
-        txttraccion.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 5).toString());
-        txtcolor.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 6).toString());
-        txtcapacidad.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 7).toString());
-        txtradicatoria.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 8).toString());
-        txttipo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 9).toString());
-        txtmodelo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 10).toString());
-        txtservicio.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 11).toString());
-        txtcilindrada.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 12).toString());
-        txtcarroceria.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 13).toString());
-        txtnumero.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 14).toString());
-        txtvehiculo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 15).toString());
-        txtgps.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 16).toString());
+        txtregistro.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0).toString());
+        txtclase.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 1).toString());
+        txtmarca.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 2).toString());
+        txtpais.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 3).toString());
+        txttraccion.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 4).toString());
+        txtcolor.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 5).toString());
+        txtcapacidad.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 6).toString());
+        txtradicatoria.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 7).toString());
+        txttipo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 8).toString());
+        txtmodelo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 9).toString());
+        txtservicio.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 10).toString());
+        txtcilindrada.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 11).toString());
+        txtcarroceria.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 12).toString());
+        txtnumero.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 13).toString());
+        txtvehiculo.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 14).toString());
+        txtgps.setText(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 15).toString());
         
       //  cbMateria.setSelectedItem(tabla_datos_tecnicos.getValueAt(filaSeleccionada, 3));
     }//GEN-LAST:event_tabla_datos_tecnicosMouseClicked
@@ -319,33 +319,32 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtbusquedaActionPerformed
  
     public void filtrarDatos(String valor) {
-        String[] titulos = {"PLACA GENERAL", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+        String[] titulos = {"REGISTRO","CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
             "RADICATORIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO DE PUERTAS", "TIPO DE VEHICULO", "CODIGO GPS"};
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from tb_datos_tecnicos where placa_iv like '%" + valor + "%'";
+        String SQL = "select * from tb_datos_tecnicos where reg_datos_tec like '%" + valor + "%'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-                registros[0] = rs.getString("placa_iv_gen");
-                registros[1] = rs.getString("placa_iv");
-                registros[2] = rs.getString("clase_dt");
-                registros[3] = rs.getString("marca_dt");
-                registros[4] = rs.getString("pais_dt");
-                registros[5] = rs.getString("traccion_dt");
-                registros[6] = rs.getString("color_dt");
-                registros[7] = rs.getString("capacidad_de_carga_dt");
-                registros[8] = rs.getString("radicatoria_dt");
-                registros[9] = rs.getString("tipo_dt");
-                registros[10] = rs.getString("modelo_dt");
-                registros[11] = rs.getString("servicio_dt");
-                registros[12] = rs.getString("cilindrada_dt");
-                registros[13] = rs.getString("tipo_carroceria_dt");
-                registros[14] = rs.getString("nro_de_puertas_dt");
-                registros[15] = rs.getString("tipo_vehiculo_dt");
-                registros[16] = rs.getString("codigo_gps_dt");
+                registros[0] = rs.getString("reg_datos_tec");
+                registros[1] = rs.getString("clase");
+                registros[2] = rs.getString("marca");
+                registros[3] = rs.getString("pais");
+                registros[4] = rs.getString("traccion");
+                registros[5] = rs.getString("color");
+                registros[6] = rs.getString("capacidad_de_carga");
+                registros[7] = rs.getString("radicatoria");
+                registros[8] = rs.getString("tipo");
+                registros[9] = rs.getString("modelo");
+                registros[10] = rs.getString("servicio");
+                registros[11] = rs.getString("cilindrada");
+                registros[12] = rs.getString("tipo_carroceria");
+                registros[13] = rs.getString("nro_de_puertas");
+                registros[14] = rs.getString("tipo_vehiculo");
+                registros[15] = rs.getString("codigo_gps");
                 modelo.addRow(registros);
             }
             tabla_datos_tecnicos.setModel(modelo);
@@ -357,7 +356,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public void limpiarCajas() {
-        txtplaca.setText("");
+        txtregistro.setText("");
         txtclase.setText("");
         txtmarca.setText("");
         txtpais.setText("");
@@ -376,7 +375,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"PLACA GENERAL", "PLACA", "CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
+        String[] titulos = {"REGISTRO","CLASE","MARCA", "PAIS", "TRACCION", "COLOR", "CAPACIDAD DE CARGA",
             "RADICATORIA", "TIPO", "MODELO", "SERVICIO", "CILINDRADA", "TIPO DE CARROCERIA", "NUMERO DE PUERTAS", "TIPO DE VEHICULO", "CODIGO GPS" };
         String[] registros = new String[17];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
@@ -387,23 +386,22 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
-                registros[0] = rs.getString("placa_iv_gen");
-                registros[1] = rs.getString("placa_iv");
-                registros[2] = rs.getString("clase_dt");
-                registros[3] = rs.getString("marca_dt");
-                registros[4] = rs.getString("pais_dt");
-                registros[5] = rs.getString("traccion_dt");
-                registros[6] = rs.getString("color_dt");
-                registros[7] = rs.getString("capacidad_de_carga_dt");
-                registros[8] = rs.getString("radicatoria_dt");
-                registros[9] = rs.getString("tipo_dt");
-                registros[10] = rs.getString("modelo_dt");
-                registros[11] = rs.getString("servicio_dt");
-                registros[12] = rs.getString("cilindrada_dt");
-                registros[13] = rs.getString("tipo_carroceria_dt");
-                registros[14] = rs.getString("nro_de_puertas_dt");
-                registros[15] = rs.getString("tipo_vehiculo_dt");
-                registros[16] = rs.getString("codigo_gps_dt");
+                registros[0] = rs.getString("reg_datos_tec");
+                registros[1] = rs.getString("clase");
+                registros[2] = rs.getString("marca");
+                registros[3] = rs.getString("pais");
+                registros[4] = rs.getString("traccion");
+                registros[5] = rs.getString("color");
+                registros[6] = rs.getString("capacidad_de_carga");
+                registros[7] = rs.getString("radicatoria");
+                registros[8] = rs.getString("tipo");
+                registros[9] = rs.getString("modelo");
+                registros[10] = rs.getString("servicio");
+                registros[11] = rs.getString("cilindrada");
+                registros[12] = rs.getString("tipo_carroceria");
+                registros[13] = rs.getString("nro_de_puertas");
+                registros[14] = rs.getString("tipo_vehiculo");
+                registros[15] = rs.getString("codigo_gps");
                 modelo.addRow(registros);
             }
             tabla_datos_tecnicos.setModel(modelo);
@@ -413,24 +411,24 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void insertarDatos () {
         try {
-            String SQL = "insert into tb_datos_tecnicos(placa_iv,clase_dt,marca_dt,pais_dt,traccion_dt,color_dt,capacidad_de_carga_dt,radicatoria_dt,tipo_dt,modelo_dt,sevicio_dt,cilindrada_dt,tipo_carroceria_dt,nro_de_puertas,tipo_vehiculo_dt,codigo_gps_dt)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String SQL = "insert into tb_datos_tecnicos(reg_datos_tec,clase,marca,pais,traccion,color,capacidad_de_carga,radicatoria,tipo,modelo,sevicio,cilindrada,tipo_carroceria,nro_de_puertas,tipo_vehiculo,codigo_gps)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setString(1, txtplaca.getText());
-            pst.setString(2, txtclase.getText());
-            pst.setString(3, txtmarca.getText());
-            pst.setString(4, txtpais.getText());
-            pst.setString(5, txttraccion.getText());
-            pst.setString(6, txtcolor.getText());
-            pst.setDouble(7, Double.parseDouble(txtcapacidad.getText()));    
-            pst.setString(8, txtradicatoria.getText());
-            pst.setString(9, txttipo.getText());
-            pst.setString(10, txtmodelo.getText());
-            pst.setString(11, txtservicio.getText());
-            pst.setString(12, txtcilindrada.getText());
-            pst.setString(13, txtcarroceria.getText());
-            pst.setString(14, txtnumero.getText());
-            pst.setString(15, txtvehiculo.getText());
-            pst.setString(16, txtgps.getText());
+            pst.setString(0, txtregistro.getText());
+            pst.setString(1, txtclase.getText());
+            pst.setString(2, txtmarca.getText());
+            pst.setString(3, txtpais.getText());
+            pst.setString(4, txttraccion.getText());
+            pst.setString(5, txtcolor.getText());
+            pst.setDouble(6, Double.parseDouble(txtcapacidad.getText()));    
+            pst.setString(7, txtradicatoria.getText());
+            pst.setString(8, txttipo.getText());
+            pst.setString(9, txtmodelo.getText());
+            pst.setString(10, txtservicio.getText());
+            pst.setString(11, txtcilindrada.getText());
+            pst.setString(12, txtcarroceria.getText());
+            pst.setString(13, txtnumero.getText());
+            pst.setString(14, txtvehiculo.getText());
+            pst.setString(15, txtgps.getText());
             
             pst.execute();
             
@@ -443,28 +441,28 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void actualizarDatos() {
         try {
-            String SQL = "update tb_datos_tecnicos set placa_iv=?,clase_dt=?,marca_dt=?,pais_dt=?,traccion_dt=?,color_dt=?,capacidad_de_carga_dt=?,radicatoria_dt=?,tipo_dt=?,modelo_dt=?,sevicio_dt=?,cilindrada_dt=?,tipo_carroceria_dt=?,nro_de_puertas_dt=?,tipo_vehiculo_dt=?,codigo_gps_dt=? where placa_iv_gen=?";
+            String SQL = "update tb_datos_tecnicos set clase=?,marca=?,pais=?,traccion=?,color=?,capacidad_de_carga=?,radicatoria=?,tipo=?,modelo=?,sevicio=?,cilindrada=?,tipo_carroceria=?,nro_de_puertas=?,tipo_vehiculo=?,codigo_gps=? where reg_datos_tec=?";
             int filaSeleccionado = tabla_datos_tecnicos.getSelectedRow();
             String dao = (String) tabla_datos_tecnicos.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
             
-            pst.setString(1, txtplaca.getText());
-            pst.setString(2, txtclase.getText());
-            pst.setString(3, txtmarca.getText());
-            pst.setString(4, txtpais.getText());
-            pst.setString(5, txttraccion.getText());
-            pst.setString(6, txtcolor.getText());
-            pst.setString(7, txtcapacidad.getText());
-            pst.setString(8, txtradicatoria.getText());
-            pst.setString(9, txttipo.getText());
-            pst.setString(10, txtmodelo.getText());
-            pst.setString(11, txtservicio.getText());
-            pst.setString(12, txtcilindrada.getText());
-            pst.setString(13, txtcarroceria.getText());
-            pst.setString(14, txtnumero.getText());
-            pst.setString(15, txtvehiculo.getText());
-            pst.setString(16, txtgps.getText());
-            pst.setString(17, dao);
+            pst.setString(0, txtregistro.getText());
+            pst.setString(1, txtclase.getText());
+            pst.setString(2, txtmarca.getText());
+            pst.setString(3, txtpais.getText());
+            pst.setString(4, txttraccion.getText());
+            pst.setString(5, txtcolor.getText());
+            pst.setString(6, txtcapacidad.getText());
+            pst.setString(7, txtradicatoria.getText());
+            pst.setString(8, txttipo.getText());
+            pst.setString(9, txtmodelo.getText());
+            pst.setString(10, txtservicio.getText());
+            pst.setString(11, txtcilindrada.getText());
+            pst.setString(12, txtcarroceria.getText());
+            pst.setString(13, txtnumero.getText());
+            pst.setString(14, txtvehiculo.getText());
+            pst.setString(15, txtgps.getText());
+            pst.setString(16, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -475,7 +473,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tabla_datos_tecnicos.getSelectedRow();
         try {
-            String SQL = "delete from tb_datos_tecnicos where placa_iv_gen=?" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from tb_datos_tecnicos where reg_datos_tec=?" + tabla_datos_tecnicos.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
@@ -556,8 +554,8 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
     private javax.swing.JTextField txtmodelo;
     private javax.swing.JTextField txtnumero;
     private javax.swing.JTextField txtpais;
-    private javax.swing.JTextField txtplaca;
     private javax.swing.JTextField txtradicatoria;
+    private javax.swing.JTextField txtregistro;
     private javax.swing.JTextField txtservicio;
     private javax.swing.JTextField txttipo;
     private javax.swing.JTextField txttraccion;
