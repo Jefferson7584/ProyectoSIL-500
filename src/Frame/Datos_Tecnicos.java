@@ -411,7 +411,7 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
         }
         public void insertarDatos () {
         try {
-            String SQL = "insert into tb_datos_tecnicos(reg_datos_tec,clase,marca,pais,traccion,color,capacidad_de_carga,radicatoria,tipo,modelo,sevicio,cilindrada,tipo_carroceria,nro_de_puertas,tipo_vehiculo,codigo_gps)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String SQL = "insert into tb_datos_tecnicos(reg_datos_tec,clase,marca,pais,traccion,color,capacidad_de_carga,radicatoria,tipo,modelo,servicio,cilindrada,tipo_carroceria,nro_de_puertas,tipo_vehiculo,codigo_gps)values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, txtregistro.getText());
             pst.setString(2, txtclase.getText());
