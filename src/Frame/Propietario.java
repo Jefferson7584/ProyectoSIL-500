@@ -270,18 +270,18 @@ public class Propietario extends javax.swing.JFrame {
     private void tablapropietarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapropietarioMouseClicked
         // TODO add your handling code here:
          int filaSeleccionada = tablapropietario.rowAtPoint(evt.getPoint());
-        txtci.setText(tablapropietario.getValueAt(filaSeleccionada, 1).toString());
-        txtexpedido.setText(tablapropietario.getValueAt(filaSeleccionada, 2).toString());
-        txtnombre1.setText(tablapropietario.getValueAt(filaSeleccionada, 3).toString());
-        txtnombre2.setText(tablapropietario.getValueAt(filaSeleccionada, 4).toString());
-        txtpaterno.setText(tablapropietario.getValueAt(filaSeleccionada, 5).toString());
-        txtmaterno.setText(tablapropietario.getValueAt(filaSeleccionada, 6).toString());
-        txtpais.setText(tablapropietario.getValueAt(filaSeleccionada, 7).toString());
-        txtciudad.setText(tablapropietario.getValueAt(filaSeleccionada, 8).toString());
-        txtzona.setText(tablapropietario.getValueAt(filaSeleccionada, 9).toString());
-        txtdomicilio.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
-        jLabel14.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
-        jLabel15.setText(tablapropietario.getValueAt(filaSeleccionada, 12).toString());
+        txtci.setText(tablapropietario.getValueAt(filaSeleccionada, 0).toString());
+        txtexpedido.setText(tablapropietario.getValueAt(filaSeleccionada, 1).toString());
+        txtnombre1.setText(tablapropietario.getValueAt(filaSeleccionada, 2).toString());
+        txtnombre2.setText(tablapropietario.getValueAt(filaSeleccionada, 3).toString());
+        txtpaterno.setText(tablapropietario.getValueAt(filaSeleccionada, 4).toString());
+        txtmaterno.setText(tablapropietario.getValueAt(filaSeleccionada, 5).toString());
+        txtpais.setText(tablapropietario.getValueAt(filaSeleccionada, 6).toString());
+        txtciudad.setText(tablapropietario.getValueAt(filaSeleccionada, 7).toString());
+        txtzona.setText(tablapropietario.getValueAt(filaSeleccionada, 8).toString());
+        txtdomicilio.setText(tablapropietario.getValueAt(filaSeleccionada, 9).toString());
+        jLabel14.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
+        jLabel15.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
     }//GEN-LAST:event_tablapropietarioMouseClicked
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
