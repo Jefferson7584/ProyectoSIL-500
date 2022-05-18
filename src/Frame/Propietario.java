@@ -328,30 +328,28 @@ public class Propietario extends javax.swing.JFrame {
 
     }
         public void mostrarDatos() {
-        String[] titulos = {"CI","PLACA", "PLACA GENERAL","EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO","FOTO"};
-        String[] registros = new String[14];
+        String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO QR","FOTO"};
+        String[] registros = new String[13];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from tb_propietario";
+        String SQL = "select * from tp_propietario";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
                 //PARTE DE BASE DE DATOS MYSQL
-                registros[0] = rs.getString("ci_prop");
-                registros[1] = rs.getString("placa_iv");
-                registros[2] = rs.getString("placa_iv_gen");
-                registros[3] = rs.getString("expedido_prop");
-                registros[4] = rs.getString("nombre1_prop");
-                registros[5] = rs.getString("nombre2_prop");
-                registros[6] = rs.getString("apellido_paterno_prop");
-                registros[7] = rs.getString("apellido_materno_prop");
-                registros[8] = rs.getString("pais_prop");
-                registros[9] = rs.getString("ciudad_prop");
-                registros[10] = rs.getString("zona_prop");
-                registros[11] = rs.getString("numero_domicilio_prop");
-                registros[12] = rs.getString("codigo_qr_prop");
-                registros[13] = rs.getString("foto_prop");
+                registros[0] = rs.getString("ci_propietario");
+                registros[1] = rs.getString("expedido");
+                registros[2] = rs.getString("nombre1");
+                registros[3] = rs.getString("nombre2");
+                registros[4] = rs.getString("apellido_paterno");
+                registros[5] = rs.getString("apellido_materno");
+                registros[6] = rs.getString("pais");
+                registros[7] = rs.getString("ciudad");
+                registros[8] = rs.getString("zona");
+                registros[9] = rs.getString("nro_domicilio");
+                registros[10] = rs.getString("codigo_qr");
+                registros[11] = rs.getString("foto");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
@@ -361,7 +359,7 @@ public class Propietario extends javax.swing.JFrame {
         }
         public void insertarDatos() {
         try {
-            String SQL = "insert into tb_propietario(ci_prop,expedido_prop,nombre1_prop,nombre2_prop,apellido_paterno_prop,apellido_materno_prop,pais_prop,ciudad_prop,zona_prop,numero_domicilio_prop,codigo_qr_prop,foto_prop)values (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String SQL = "insert into tp_propietario(ci_propietario,expedido,nombre1,nombre2,apellido_paterno,apellido_materno,pais,ciudad,zona,nro_domicilio,codigo_qr,foto)values (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
           //  pst.setString(0, txtci.getText());
             pst.setString(1, txtci.getText());
@@ -387,24 +385,24 @@ public class Propietario extends javax.swing.JFrame {
     
         public void actualizarDatos() {
         try {
-            String SQL = "update tb_propietario set ci_prop=?,expedido_prop=?,nombre1_prop=?,nombre2_prop=?,apellido_paterno_prop=?,apellido_materno_prop=?,pais_prop=?,ciudad_prop=?,zona_prop=?,numero_domicilio_prop=?,codigo_qr_prop=?,foto_prop=? where placa_iv=?,placa_iv_gen=?"; //where idalumnos=?
+            String SQL = "update tp_propietario set expedido=?,nombre1=?,nombre2=?,apellido_paterno=?,apellido_materno=?,pais=?,ciudad=?,zona=?,nro_domicilio=?,codigo_qr=?,foto=? where ci_propietario=?"; //where idalumnos=?
             int filaSeleccionado = tablapropietario.getSelectedRow();
             String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
 
-            pst.setString(1, txtci.getText());
-            pst.setString(2, txtexpedido.getText());
-            pst.setString(3, txtnombre1.getText());
-            pst.setString(4, txtnombre2.getText());
-            pst.setString(5, txtpaterno.getText());
-            pst.setString(6, txtmaterno.getText());
-            pst.setString(7, txtpais.getText());
-            pst.setString(8, txtciudad.getText());
-            pst.setString(9, txtzona.getText());
-            pst.setString(10, txtdomicilio.getText());
-            pst.setString(11,jLabel14.getText());
-            pst.setString(12,jLabel15.getText());
-            pst.setString(13, dao);
+            //pst.setString(1, txtci.getText());
+            pst.setString(1, txtexpedido.getText());
+            pst.setString(2, txtnombre1.getText());
+            pst.setString(3, txtnombre2.getText());
+            pst.setString(4, txtpaterno.getText());
+            pst.setString(5, txtmaterno.getText());
+            pst.setString(6, txtpais.getText());
+            pst.setString(7, txtciudad.getText());
+            pst.setString(8, txtzona.getText());
+            pst.setString(9, txtdomicilio.getText());
+            pst.setString(10,jLabel14.getText());
+            pst.setString(11,jLabel15.getText());
+            pst.setString(12, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -416,7 +414,7 @@ public class Propietario extends javax.swing.JFrame {
         public void eliminarRegistros() {
         int filaSeleccionada = tablapropietario.getSelectedRow();
         try {
-            String SQL = "delete from tb_propietario where ci_prop=" + tablapropietario.getValueAt(filaSeleccionada, 0);
+            String SQL = "delete from tp_propietario where ci_propietario=" + tablapropietario.getValueAt(filaSeleccionada, 0);
             Statement st = con.createStatement();
             int n = st.executeUpdate(SQL);
             if (n > 0) {
@@ -429,26 +427,26 @@ public class Propietario extends javax.swing.JFrame {
         //parte base de datos
          public void filtrarDatos(String valor) {
         String[] titulos = {"CI", "EXPEDIDO", "NOMBRE1", "NOMBRE2", "PATERNO", "MATERNO", "PAIS","CIUDAD","ZONA","DOMICILIO","CODIGO QR","FOTO"};
-        String[] registros = new String[12];
+        String[] registros = new String[13];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from tb_propietario where ci_prop like '%" + valor + "%'";
+        String SQL = "select * from tp_propietario where ci_propietario like '%" + valor + "%'";
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-               registros[0] = rs.getString("ci_prop");
-                registros[1] = rs.getString("expedido_prop");
-                registros[2] = rs.getString("nombre1_prop");
-                registros[3] = rs.getString("nombre2_prop");
-                registros[4] = rs.getString("apellido_paterno_prop");
-                registros[5] = rs.getString("apellido_materno_prop");
-                registros[6] = rs.getString("pais_prop");
-                registros[7] = rs.getString("ciudad_prop");
-                registros[8] = rs.getString("zona_prop");
-                registros[9] = rs.getString("numero_domicilio_prop");
-                registros[101] = rs.getString("codigo_qr_prop");
-                registros[11] = rs.getString("foto_prop");
+                registros[0] = rs.getString("ci_propietario");
+                registros[1] = rs.getString("expedido");
+                registros[2] = rs.getString("nombre1");
+                registros[3] = rs.getString("nombre2");
+                registros[4] = rs.getString("apellido_paterno");
+                registros[5] = rs.getString("apellido_materno");
+                registros[6] = rs.getString("pais");
+                registros[7] = rs.getString("ciudad");
+                registros[8] = rs.getString("zona");
+                registros[9] = rs.getString("nro_domicilio");
+                registros[10] = rs.getString("codigo_qr");
+                registros[11] = rs.getString("foto");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
