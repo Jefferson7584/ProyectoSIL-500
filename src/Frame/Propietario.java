@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Locale;
+import javax.swing.Icon;  //BORRAR
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -30,6 +31,7 @@ public class Propietario extends javax.swing.JFrame {
 
        conexionSQL cc = new conexionSQL();
        Connection con = cc.conexion();
+    private Icon Icon; //BORRAR
     /**
      * Creates new form Propietario
      */
@@ -341,7 +343,7 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText("");
         txtzona.setText("");
         txtdomicilio.setText("");
-        jLabelQR.setText("");
+        jLabelQR.setIcon(Icon);
         jLabel15.setText("");
 
     }
