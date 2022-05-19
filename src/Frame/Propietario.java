@@ -227,7 +227,7 @@ public class Propietario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 90, -1));
-        jPanel1.add(jLabelQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 160, 160));
+        jPanel1.add(jLabelQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 130, 90));
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 90));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 870, 550));
 
@@ -250,7 +250,7 @@ public class Propietario extends javax.swing.JFrame {
          insertarDatos();
          limpiarCajas();
          mostrarDatos();
-        
+        GenerarCodigoQR();
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -287,6 +287,8 @@ public class Propietario extends javax.swing.JFrame {
         txtdomicilio.setText(tablapropietario.getValueAt(filaSeleccionada, 9).toString());
         jLabelQR.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
         jLabel15.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
+        
+         GenerarCodigoQR();
     }//GEN-LAST:event_tablapropietarioMouseClicked
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -302,7 +304,7 @@ public class Propietario extends javax.swing.JFrame {
       //  String path = f.getAbsolutePath();
      //   ImageIcon icon = new ImageIcon(path);
      //   jLabelQR.setIcon(icon);
-      GenerarCodigoQR();
+      
     }//GEN-LAST:event_btnQRActionPerformed
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
