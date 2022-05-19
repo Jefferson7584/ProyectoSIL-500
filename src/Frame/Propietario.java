@@ -7,8 +7,10 @@ package Frame;
 
 import com.mysql.jdbc.Connection;
 import conexionSQL.conexionSQL;
+import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 import javax.swing.ImageIcon;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -86,7 +89,8 @@ public class Propietario extends javax.swing.JFrame {
         txtexpedido = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
         jLabelQR = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLabelFoto = new javax.swing.JLabel();
+        txtnombre_foto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -152,7 +156,7 @@ public class Propietario extends javax.swing.JFrame {
                 btnFotoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 120, -1));
+        jPanel1.add(btnFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 120, -1));
 
         tablapropietario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -230,7 +234,8 @@ public class Propietario extends javax.swing.JFrame {
         });
         jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 90, -1));
         jPanel1.add(jLabelQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 130, 90));
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 90));
+        jPanel1.add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 90));
+        jPanel1.add(txtnombre_foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 120, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 870, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -288,7 +293,7 @@ public class Propietario extends javax.swing.JFrame {
         txtzona.setText(tablapropietario.getValueAt(filaSeleccionada, 8).toString());
         txtdomicilio.setText(tablapropietario.getValueAt(filaSeleccionada, 9).toString());
         jLabelQR.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
-        jLabel15.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
+        jLabelFoto.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
         
          GenerarCodigoQR();
     }//GEN-LAST:event_tablapropietarioMouseClicked
@@ -311,12 +316,25 @@ public class Propietario extends javax.swing.JFrame {
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         // TODO add your handling code here:
-           JFileChooser chooser = new JFileChooser();
+        /*   JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
         File f = chooser.getSelectedFile();
         String path = f.getAbsolutePath();
         ImageIcon icon = new ImageIcon(path);
-        jLabel15.setIcon(icon);
+        jLabel15.setIcon(icon);*/
+        File archivo;
+        JFileChooser flcAbritArchivo=new JFileChooser();
+        flcAbritArchivo.setFileFilter(new FileNameExtensionFilter("archivo de imagen", "jpg", "jpeg"));
+        int respuesta=flcAbritArchivo.showOpenDialog(this);
+        
+        if(respuesta==JFileChooser.APPROVE_OPTION){
+            
+            archivo=flcAbritArchivo.getSelectedFile();
+            txtnombre_foto.setText(archivo.getAbsolutePath());
+            Image foto=getToolkit().getImage(txtnombre_foto.getText());
+            foto=foto.getScaledInstance(120, 90, 1);
+            jLabelFoto.setIcon(new ImageIcon(foto));
+        }
     }//GEN-LAST:event_btnFotoActionPerformed
 
     /**
@@ -344,7 +362,7 @@ public class Propietario extends javax.swing.JFrame {
         txtzona.setText("");
         txtdomicilio.setText("");
         jLabelQR.setText("");
-        jLabel15.setText("");
+        jLabelFoto.setText("");
 
     }
         public void mostrarDatos() {
@@ -378,9 +396,13 @@ public class Propietario extends javax.swing.JFrame {
         }
         }
         public void insertarDatos() {
+            FileInputStream archivoFoto;
+            File nombreFoto;
         try {
             String SQL = "insert into tp_propietario(ci_propietario,expedido,nombre1,nombre2,apellido_paterno,apellido_materno,pais,ciudad,zona,nro_domicilio,codigo_qr,foto)values (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
+            nombreFoto=new File (txtnombre_foto.getText());
+            archivoFoto=new FileInputStream(nombreFoto);
           //  pst.setString(0, txtci.getText());
             pst.setString(1, txtci.getText());
             pst.setString(2, txtexpedido.getText());
@@ -393,7 +415,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(9, txtzona.getText());
             pst.setString(10, txtdomicilio.getText());
             pst.setString(11, jLabelQR.getText());
-            pst.setString(12, jLabel15.getText());
+            pst.setBinaryStream(12, archivoFoto,archivoFoto.available());
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
@@ -421,7 +443,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(8, txtzona.getText());
             pst.setString(9, txtdomicilio.getText());
             pst.setString(10,jLabelQR.getText());
-            pst.setString(11,jLabel15.getText());
+            pst.setString(11,jLabelFoto.getText());
             pst.setString(12, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
@@ -520,7 +542,6 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -529,6 +550,7 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelFoto;
     private javax.swing.JLabel jLabelQR;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -541,6 +563,7 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JTextField txtmaterno;
     private javax.swing.JTextField txtnombre1;
     private javax.swing.JTextField txtnombre2;
+    private javax.swing.JTextField txtnombre_foto;
     private javax.swing.JTextField txtpais;
     private javax.swing.JTextField txtpaterno;
     private javax.swing.JTextField txtzona;
