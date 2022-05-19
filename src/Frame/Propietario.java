@@ -392,7 +392,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(8, txtciudad.getText());
             pst.setString(9, txtzona.getText());
             pst.setString(10, txtdomicilio.getText());
-            pst.setString(11, jLabelQR.getText());
+            pst.setString(11, jLabelQR.getToolTipText());
             pst.setString(12, jLabel15.getText());
             
             pst.execute();
