@@ -253,7 +253,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             archivo=flcAbritArchivo.getSelectedFile();
             txtfoto.setText(archivo.getAbsolutePath());
             Image foto=getToolkit().getImage(txtfoto.getText());
-            foto=foto.getScaledInstance(120, 90, 1);
+            foto=foto.getScaledInstance(160, 130, 1);
             jLabelFotoA.setIcon(new ImageIcon(foto));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
