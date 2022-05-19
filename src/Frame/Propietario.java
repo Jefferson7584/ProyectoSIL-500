@@ -138,7 +138,7 @@ public class Propietario extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
         jPanel1.add(txtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 130, -1));
 
-        btnQR.setText("SUBIR QR");
+        btnQR.setText("GENERAR QR");
         btnQR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQRActionPerformed(evt);
@@ -252,7 +252,7 @@ public class Propietario extends javax.swing.JFrame {
          insertarDatos();
          limpiarCajas();
          mostrarDatos();
-        GenerarCodigoQR();
+        
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -306,7 +306,7 @@ public class Propietario extends javax.swing.JFrame {
       //  String path = f.getAbsolutePath();
      //   ImageIcon icon = new ImageIcon(path);
      //   jLabelQR.setIcon(icon);
-      
+      GenerarCodigoQR();
     }//GEN-LAST:event_btnQRActionPerformed
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
