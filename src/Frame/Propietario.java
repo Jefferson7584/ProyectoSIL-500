@@ -361,8 +361,8 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText("");
         txtzona.setText("");
         txtdomicilio.setText("");
-        jLabelQR.setText("");
-        jLabelFoto.setText("");
+        jLabelQR.setIcon(null);
+        jLabelFoto.setIcon(null);
 
     }
         public void mostrarDatos() {
