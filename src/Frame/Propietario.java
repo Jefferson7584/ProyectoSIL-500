@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Locale;
-import javax.swing.Icon;  //BORRAR
+//import javax.swing.Icon;  //BORRAR
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -31,7 +31,7 @@ public class Propietario extends javax.swing.JFrame {
 
        conexionSQL cc = new conexionSQL();
        Connection con = cc.conexion();
-    private Icon Icon; //BORRAR
+  //  private Icon Icon; //BORRAR
     /**
      * Creates new form Propietario
      */
@@ -343,7 +343,7 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText("");
         txtzona.setText("");
         txtdomicilio.setText("");
-        jLabelQR.setIcon(Icon);
+        jLabelQR.setText("");
         jLabel15.setText("");
 
     }
@@ -392,7 +392,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(8, txtciudad.getText());
             pst.setString(9, txtzona.getText());
             pst.setString(10, txtdomicilio.getText());
-            pst.setString(11, jLabelQR.getToolTipText());
+            pst.setString(11, jLabelQR.getText());
             pst.setString(12, jLabel15.getText());
             
             pst.execute();
