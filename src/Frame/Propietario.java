@@ -7,6 +7,7 @@ package Frame;
 
 import com.mysql.jdbc.Connection;
 import conexionSQL.conexionSQL;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
@@ -17,6 +18,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 
 /**
  *
@@ -79,7 +82,7 @@ public class Propietario extends javax.swing.JFrame {
         btnactualizar = new javax.swing.JButton();
         txtexpedido = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        jLabelQR = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -223,7 +226,7 @@ public class Propietario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 90, -1));
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 120, 90));
+        jPanel1.add(jLabelQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 120, 90));
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 90));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 870, 550));
 
@@ -246,6 +249,7 @@ public class Propietario extends javax.swing.JFrame {
          insertarDatos();
          limpiarCajas();
          mostrarDatos();
+         GenerarCodigoQR();
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -280,7 +284,7 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText(tablapropietario.getValueAt(filaSeleccionada, 7).toString());
         txtzona.setText(tablapropietario.getValueAt(filaSeleccionada, 8).toString());
         txtdomicilio.setText(tablapropietario.getValueAt(filaSeleccionada, 9).toString());
-        jLabel14.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
+        jLabelQR.setText(tablapropietario.getValueAt(filaSeleccionada, 10).toString());
         jLabel15.setText(tablapropietario.getValueAt(filaSeleccionada, 11).toString());
     }//GEN-LAST:event_tablapropietarioMouseClicked
 
@@ -296,7 +300,7 @@ public class Propietario extends javax.swing.JFrame {
         File f = chooser.getSelectedFile();
         String path = f.getAbsolutePath();
         ImageIcon icon = new ImageIcon(path);
-        jLabel14.setIcon(icon);
+        jLabelQR.setIcon(icon);
     }//GEN-LAST:event_btnQRActionPerformed
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
@@ -312,6 +316,16 @@ public class Propietario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    public void GenerarCodigoQR()
+    {
+        ByteArrayOutputStream out=QRCode.from(this.txtci.getText()).to(ImageType.PNG).stream();
+	ImageIcon imageIcon=new ImageIcon(out.toByteArray());
+	this.jLabelQR.setIcon(imageIcon);
+    
+    }
+    
+    
     public void limpiarCajas() {
         txtci.setText("");
         txtexpedido.setText("");
@@ -323,7 +337,7 @@ public class Propietario extends javax.swing.JFrame {
         txtciudad.setText("");
         txtzona.setText("");
         txtdomicilio.setText("");
-        jLabel14.setText("");
+        jLabelQR.setText("");
         jLabel15.setText("");
 
     }
@@ -372,7 +386,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(8, txtciudad.getText());
             pst.setString(9, txtzona.getText());
             pst.setString(10, txtdomicilio.getText());
-            pst.setString(11, jLabel14.getText());
+            pst.setString(11, jLabelQR.getText());
             pst.setString(12, jLabel15.getText());
             
             pst.execute();
@@ -400,7 +414,7 @@ public class Propietario extends javax.swing.JFrame {
             pst.setString(7, txtciudad.getText());
             pst.setString(8, txtzona.getText());
             pst.setString(9, txtdomicilio.getText());
-            pst.setString(10,jLabel14.getText());
+            pst.setString(10,jLabelQR.getText());
             pst.setString(11,jLabel15.getText());
             pst.setString(12, dao);
             pst.execute();
@@ -500,7 +514,6 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -510,6 +523,7 @@ public class Propietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelQR;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablapropietario;
