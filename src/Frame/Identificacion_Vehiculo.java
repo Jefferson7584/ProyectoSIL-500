@@ -243,7 +243,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-         File archivo;
+        File archivo;
         JFileChooser flcAbritArchivo=new JFileChooser();
         flcAbritArchivo.setFileFilter(new FileNameExtensionFilter("archivo de imagen", "jpg", "jpeg"));
         int respuesta=flcAbritArchivo.showOpenDialog(this);
@@ -299,7 +299,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             FileInputStream archivoFoto;
             File nombreFoto;
         try {
-            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?,?)";
+            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
           //  pst.setString(0, txtci.getText());
             nombreFoto=new File (txtfoto.getText());
