@@ -300,7 +300,7 @@ public class Propietario extends javax.swing.JFrame {
         File f = chooser.getSelectedFile();
         String path = f.getAbsolutePath();
         ImageIcon icon = new ImageIcon(path);
-        jLabelQR.setIcon(icon);
+     //   jLabelQR.setIcon(icon);
     }//GEN-LAST:event_btnQRActionPerformed
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
