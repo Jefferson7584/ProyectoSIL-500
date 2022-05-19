@@ -5,12 +5,19 @@
  */
 package Frame;
 
+import com.mysql.jdbc.Connection;
+import conexionSQL.conexionSQL;
 import java.awt.Graphics;
 import java.awt.PrintJob;
 import java.awt.Toolkit;
 import java.io.File;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,11 +25,16 @@ import javax.swing.JFileChooser;
  */
 public class Identificacion_Vehiculo extends javax.swing.JFrame {
 
+        conexionSQL cc = new conexionSQL();
+       Connection con = cc.conexion();
     /**
      * Creates new form Identificacion_Vehiculo
      */
     public Identificacion_Vehiculo() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(getBackground());
+        mostrarDatos();
     }
 
     /**
@@ -35,24 +47,28 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtplaca = new javax.swing.JTextField();
-        txtpoliza = new javax.swing.JTextField();
-        txtnumero_placa = new javax.swing.JTextField();
-        txtnuemro_motor = new javax.swing.JTextField();
-        txtnumero_chasis = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btngenerar = new javax.swing.JButton();
-        btnfoto = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
-        btnnuevo = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtplaca = new javax.swing.JTextField();
+        txtnumero_motor = new javax.swing.JTextField();
+        txtpoliza = new javax.swing.JTextField();
+        txtnumero_chasis = new javax.swing.JTextField();
+        txtnumero_copia_placa = new javax.swing.JTextField();
+        txtbusqueda = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla_Identificacion = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        btnNuevo = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,125 +76,279 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setMinimumSize(new java.awt.Dimension(375, 207));
-        jPanel2.setPreferredSize(new java.awt.Dimension(375, 207));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setText("Identificacion");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
-
-        jLabel4.setText("Placa :");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jLabel5.setText("Poliza :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
-
-        jLabel6.setText("numero placa :");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 80, -1));
-
-        jLabel7.setText("numero Motor :");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-
-        jLabel8.setText("numero Chasis :");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, 10));
-
-        txtplaca.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 110, 30));
-
-        txtpoliza.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 110, -1));
-
-        txtnumero_placa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtnumero_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 110, -1));
-
-        txtnuemro_motor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtnuemro_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 110, -1));
-
-        txtnumero_chasis.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 110, -1));
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 70, 80));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo.png"))); // NOI18N
-        jLabel2.setMinimumSize(new java.awt.Dimension(375, 207));
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 200));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 320, 200));
-
-        btngenerar.setText("GENERAR");
-        btngenerar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btngenerarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btngenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 120, 30));
-
-        btnfoto.setText("SUBIR IMAGEN");
-        btnfoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfotoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 130, 30));
-
         btnPrincipal.setText("MENU PRINCIPAL");
-        jPanel1.add(btnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
+        jPanel1.add(btnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, -1, -1));
 
-        btnnuevo.setText("NUEVO");
-        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+        jLabel10.setText("IDENTIFICACION VEHICULO");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        jLabel11.setText("PLACA");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 40, -1));
+
+        jLabel12.setText("NUMERO MOTOR");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        jLabel13.setText("POLIZA");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
+
+        jLabel14.setText("NUMERO CHASIS");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
+
+        jLabel15.setText("NUMERO COPIA DE PLACA");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        jLabel16.setText("BUSQUEDA:");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel1.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, -1));
+        jPanel1.add(txtnumero_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 160, 130, -1));
+        jPanel1.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 120, -1));
+        jPanel1.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 110, -1));
+        jPanel1.add(txtnumero_copia_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 110, -1));
+
+        txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnuevoActionPerformed(evt);
+                txtbusquedaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 480));
+        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 210, -1));
+
+        Tabla_Identificacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        Tabla_Identificacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabla_IdentificacionMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Tabla_Identificacion);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 620, 170));
+
+        jButton1.setText("SUBIR FOTO");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
+
+        jLabel17.setText("jLabel17");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 110, 100));
+
+        btnNuevo.setText("NUEVO");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
+
+        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 450, 100, -1));
+
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, -1, -1));
+
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 640, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnfotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfotoActionPerformed
+    private void Tabla_IdentificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla_IdentificacionMouseClicked
         // TODO add your handling code here:
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File f = chooser.getSelectedFile();
-        String path = f.getAbsolutePath();
-        ImageIcon icon = new ImageIcon(path);
-        jLabel9.setIcon(icon);
-    }//GEN-LAST:event_btnfotoActionPerformed
+           int filaSeleccionada = Tabla_Identificacion.rowAtPoint(evt.getPoint());
+        txtplaca.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 0).toString());
+        txtpoliza.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 1).toString());
+        txtnumero_copia_placa.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 2).toString());
+        txtnumero_motor.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 3).toString());
+        txtnumero_chasis.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 4).toString());
+        jLabel17.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 5).toString());
+    
+    }//GEN-LAST:event_Tabla_IdentificacionMouseClicked
 
-    private void btngenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngenerarActionPerformed
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-        Toolkit tkp = jPanel2.getToolkit();
-        PrintJob pjp = tkp.getPrintJob(this, null, null);
-        Graphics g = pjp.getGraphics();
-        jPanel2.paintAll(g);
-        g.dispose();
-        pjp.end();
-    }//GEN-LAST:event_btngenerarActionPerformed
+         limpiarCajas();
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+         insertarDatos();
+         limpiarCajas();
+         mostrarDatos();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        eliminarRegistros();
         limpiarCajas();
-    }//GEN-LAST:event_btnnuevoActionPerformed
+        mostrarDatos();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-     public void limpiarCajas() {
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        actualizarDatos();
+        limpiarCajas();
+        mostrarDatos();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void txtbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbusquedaActionPerformed
+        // TODO add your handling code here:
+        filtrarDatos(txtbusqueda.getText());
+    }//GEN-LAST:event_txtbusquedaActionPerformed
+
+    public void limpiarCajas() {
         txtplaca.setText("");
         txtpoliza.setText("");
-        txtnumero_placa.setText("");
-        txtnuemro_motor.setText("");
+        txtnumero_copia_placa.setText("");
+        txtnumero_motor.setText("");
         txtnumero_chasis.setText("");
-        jLabel9.setText("");
-       
+        jLabel17.setText("");
+    }
+    
+    
+            public void mostrarDatos() {
+        String[] titulos = {"PLACA", "REGISTRO_TECNICO", "POLIZA", "NUMERO COPIA PLACA", "MOTOR", "CHASIS", "FOTO"};
+        String[] registros = new String[8];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from tb_identificacion_vehiculo";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            while (rs.next()) {
+                //PARTE DE  LA BASE DE DATOS MYSQL
+                registros[0] = rs.getString("placa_iv");
+                registros[1] = rs.getString("reg_datos_tec");
+                registros[2] = rs.getString("poliza");
+                registros[3] = rs.getString("nro_copia_placa_tpa");
+                registros[4] = rs.getString("nro_motor");
+                registros[5] = rs.getString("nro_chasis");
+                registros[6] = rs.getString("foto");
+                modelo.addRow(registros);
+            }
+            Tabla_Identificacion.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+        }
+            
+            
+                public void insertarDatos() {
+        try {
+            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(SQL);
+          //  pst.setString(0, txtci.getText());
+            pst.setString(1, txtplaca.getText());
+            pst.setString(3, txtpoliza.getText());
+            pst.setString(4, txtnumero_copia_placa.getText());
+            pst.setString(5, txtnumero_motor.getText());
+            pst.setString(6, txtnumero_chasis.getText());
+            pst.setString(7, jLabel17.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Registro ERROR" + e.getMessage());
+        }
+        }
+                
+                
+               public void actualizarDatos() {
+        try {
+            String SQL = "update tb_identificacion_vehiculo set poliza=?,nro:copia_placa_tpa=?,nro_motor=?,nro_chasis=?,foto=? where placa_iv=? reg_datos_tec=?"; //where idalumnos=?
+            int filaSeleccionado = Tabla_Identificacion.getSelectedRow();
+            String dao = (String) Tabla_Identificacion.getValueAt(filaSeleccionado, 0);
+            PreparedStatement pst = con.prepareStatement(SQL);
+
+           // pst.setString(1, txtplaca.getText());
+            pst.setString(3, txtpoliza.getText());
+            pst.setString(4, txtnumero_copia_placa.getText());
+            pst.setString(5, txtnumero_motor.getText());
+            pst.setString(6, txtnumero_chasis.getText());
+            pst.setString(7, jLabel17.getText());
+            pst.setString(8, dao);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Registro Editado ERROR" + e.getMessage());
+        }
+    }
+               
+         public void eliminarRegistros() {
+        int filaSeleccionada = Tabla_Identificacion.getSelectedRow();
+        try {
+            String SQL = "delete from tb_identificacion_vehiculo where placa_iv=" + Tabla_Identificacion.getValueAt(filaSeleccionada, 0);
+            Statement st = con.createStatement();
+            int n = st.executeUpdate(SQL);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "Registro ELIMINADO");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Eliminar Registro ERROR" + e.getMessage());
+        }
+        }
+      
+              public void filtrarDatos(String valor) {
+        String[] titulos = {"PLACA", "REGISTRO_TECNICO", "POLIZA", "NUMERO COPIA PLACA", "MOTOR", "CHASIS", "FOTO"};
+        String[] registros = new String[8];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from tb_identificacion_vehiculo where placa_iv like '%" + valor + "%'";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            while (rs.next()) {
+                registros[0] = rs.getString("placa_iv");
+                registros[1] = rs.getString("reg_datos_tec");
+                registros[2] = rs.getString("poliza");
+                registros[3] = rs.getString("nro_copia_placa_tpa");
+                registros[4] = rs.getString("nro_motor");
+                registros[5] = rs.getString("nro_chasis");
+                registros[6] = rs.getString("foto");
+                modelo.addRow(registros);
+            }
+            Tabla_Identificacion.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
     }
     /**
      * @param args the command line arguments
@@ -216,24 +386,28 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabla_Identificacion;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnPrincipal;
-    private javax.swing.JButton btnfoto;
-    private javax.swing.JButton btngenerar;
-    private javax.swing.JButton btnnuevo;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtnuemro_motor;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtbusqueda;
     private javax.swing.JTextField txtnumero_chasis;
-    private javax.swing.JTextField txtnumero_placa;
+    private javax.swing.JTextField txtnumero_copia_placa;
+    private javax.swing.JTextField txtnumero_motor;
     private javax.swing.JTextField txtplaca;
     private javax.swing.JTextField txtpoliza;
     // End of variables declaration//GEN-END:variables
