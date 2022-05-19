@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
+import javax.swing.ImageIcon;
 
 /**
  *
