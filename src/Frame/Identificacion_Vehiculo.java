@@ -272,15 +272,15 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             
                 public void insertarDatos() {
         try {
-            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?)";
+            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
           //  pst.setString(0, txtci.getText());
             pst.setString(1, txtplaca.getText());
-            pst.setString(2, txtpoliza.getText());
-            pst.setString(3, txtnumero_copia_placa.getText());
-            pst.setString(4, txtnumero_motor.getText());
-            pst.setString(5, txtnumero_chasis.getText());
-            pst.setString(6, jLabel17.getText());
+            pst.setString(3, txtpoliza.getText());
+            pst.setString(4, txtnumero_copia_placa.getText());
+            pst.setString(5, txtnumero_motor.getText());
+            pst.setString(6, txtnumero_chasis.getText());
+            pst.setString(7, jLabel17.getText());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
 
