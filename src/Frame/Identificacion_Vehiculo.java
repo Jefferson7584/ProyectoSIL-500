@@ -79,8 +79,9 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         btnPrincipal.setText("MENU PRINCIPAL");
         jPanel1.add(btnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
         jLabel10.setText("IDENTIFICACION VEHICULO");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         jLabel11.setText("PLACA");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 40, -1));
@@ -172,13 +173,13 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 640, 490));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 650, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
