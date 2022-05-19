@@ -8,15 +8,18 @@ package Frame;
 import com.mysql.jdbc.Connection;
 import conexionSQL.conexionSQL;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.PrintJob;
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.FileInputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -64,11 +67,12 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Identificacion = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
+        jLabelFotoA = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
+        txtfoto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,10 +141,13 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 620, 170));
 
         jButton1.setText("SUBIR FOTO");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
-
-        jLabel17.setText("jLabel17");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 110, 100));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
+        jPanel1.add(jLabelFotoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 160, 130));
 
         btnNuevo.setText("NUEVO");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +180,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
+        jPanel1.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 130, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 650, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,7 +205,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         txtnumero_copia_placa.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 2).toString());
         txtnumero_motor.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 3).toString());
         txtnumero_chasis.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 4).toString());
-        jLabel17.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 5).toString());
+        jLabelFotoA.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 5).toString());
     
     }//GEN-LAST:event_Tabla_IdentificacionMouseClicked
 
@@ -232,13 +240,31 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         filtrarDatos(txtbusqueda.getText());
     }//GEN-LAST:event_txtbusquedaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+         File archivo;
+        JFileChooser flcAbritArchivo=new JFileChooser();
+        flcAbritArchivo.setFileFilter(new FileNameExtensionFilter("archivo de imagen", "jpg", "jpeg"));
+        int respuesta=flcAbritArchivo.showOpenDialog(this);
+        
+        if(respuesta==JFileChooser.APPROVE_OPTION){
+            
+            archivo=flcAbritArchivo.getSelectedFile();
+            txtfoto.setText(archivo.getAbsolutePath());
+            Image foto=getToolkit().getImage(txtfoto.getText());
+            foto=foto.getScaledInstance(120, 90, 1);
+            jLabelFotoA.setIcon(new ImageIcon(foto));
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void limpiarCajas() {
         txtplaca.setText("");
         txtpoliza.setText("");
         txtnumero_copia_placa.setText("");
         txtnumero_motor.setText("");
         txtnumero_chasis.setText("");
-        jLabel17.setText("");
+        jLabelFotoA.setIcon(null);
     }
     
     
@@ -269,17 +295,22 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         }
             
             
-                public void insertarDatos() {
+    public void insertarDatos() {
+            FileInputStream archivoFoto;
+            File nombreFoto;
         try {
             String SQL = "insert into tb_identificacion_vehiculo(placa_iv,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
           //  pst.setString(0, txtci.getText());
+            nombreFoto=new File (txtfoto.getText());
+            archivoFoto=new FileInputStream(nombreFoto);
+            
             pst.setString(1, txtplaca.getText());
             pst.setString(3, txtpoliza.getText());
             pst.setString(4, txtnumero_copia_placa.getText());
             pst.setString(5, txtnumero_motor.getText());
             pst.setString(6, txtnumero_chasis.getText());
-            pst.setString(7, jLabel17.getText());
+            pst.setBinaryStream(7, archivoFoto,archivoFoto.available());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
 
@@ -301,7 +332,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             pst.setString(4, txtnumero_copia_placa.getText());
             pst.setString(5, txtnumero_motor.getText());
             pst.setString(6, txtnumero_chasis.getText());
-            pst.setString(7, jLabel17.getText());
+            pst.setString(7, jLabelFotoA.getText());
             pst.setString(8, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
@@ -400,10 +431,11 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabelFotoA;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtbusqueda;
+    private javax.swing.JTextField txtfoto;
     private javax.swing.JTextField txtnumero_chasis;
     private javax.swing.JTextField txtnumero_copia_placa;
     private javax.swing.JTextField txtnumero_motor;
