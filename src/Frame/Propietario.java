@@ -426,25 +426,30 @@ public class Propietario extends javax.swing.JFrame {
         }
     
         public void actualizarDatos() {
+            FileInputStream archivoFoto;
+            File nombreFoto;
         try {
             String SQL = "update tp_propietario set expedido=?,nombre1=?,nombre2=?,apellido_paterno=?,apellido_materno=?,pais=?,ciudad=?,zona=?,nro_domicilio=?,codigo_qr=?,foto=? where ci_propietario=?"; //where idalumnos=?
             int filaSeleccionado = tablapropietario.getSelectedRow();
             String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
-
-            pst.setString(0, txtci.getText());
-            pst.setString(1, txtexpedido.getText());
-            pst.setString(2, txtnombre1.getText());
-            pst.setString(3, txtnombre2.getText());
-            pst.setString(4, txtpaterno.getText());
-            pst.setString(5, txtmaterno.getText());
-            pst.setString(6, txtpais.getText());
-            pst.setString(7, txtciudad.getText());
-            pst.setString(8, txtzona.getText());
-            pst.setString(9, txtdomicilio.getText());
-            pst.setString(10,jLabelQR.getText());
-            pst.setString(11,jLabelFoto.getText());
-            pst.setString(12, dao);
+            
+            nombreFoto=new File (txtnombre_foto.getText());
+            archivoFoto=new FileInputStream(nombreFoto);
+            
+            pst.setString(1, txtci.getText());
+            pst.setString(2, txtexpedido.getText());
+            pst.setString(3, txtnombre1.getText());
+            pst.setString(4, txtnombre2.getText());
+            pst.setString(5, txtpaterno.getText());
+            pst.setString(6, txtmaterno.getText());
+            pst.setString(7, txtpais.getText());
+            pst.setString(8, txtciudad.getText());
+            pst.setString(9, txtzona.getText());
+            pst.setString(10, txtdomicilio.getText());
+            pst.setString(11,jLabelQR.getText());
+            pst.setBinaryStream(12, archivoFoto,archivoFoto.available());
+            pst.setString(13, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
