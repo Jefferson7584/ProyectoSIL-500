@@ -201,11 +201,11 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
            int filaSeleccionada = Tabla_Identificacion.rowAtPoint(evt.getPoint());
         txtplaca.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 0).toString());
-       // txtpoliza.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 1).toString());
-        txtnumero_copia_placa.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 2).toString());
-        txtnumero_motor.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 3).toString());
-        txtnumero_chasis.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 4).toString());
-        jLabelFotoA.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 5).toString());
+        txtpoliza.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 2).toString());
+        txtnumero_copia_placa.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 3).toString());
+        txtnumero_motor.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 4).toString());
+        txtnumero_chasis.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 5).toString());
+        jLabelFotoA.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 6).toString());
     
     }//GEN-LAST:event_Tabla_IdentificacionMouseClicked
 
