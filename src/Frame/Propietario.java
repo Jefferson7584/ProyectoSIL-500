@@ -226,7 +226,7 @@ public class Propietario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 90, -1));
-        jPanel1.add(jLabelQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 120, 90));
+        jPanel1.add(jLabelQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 160, 160));
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 120, 90));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 870, 550));
 
@@ -295,12 +295,13 @@ public class Propietario extends javax.swing.JFrame {
 
     private void btnQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQRActionPerformed
         // TODO add your handling code here:
-         JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File f = chooser.getSelectedFile();
-        String path = f.getAbsolutePath();
-        ImageIcon icon = new ImageIcon(path);
+     //    JFileChooser chooser = new JFileChooser();
+     //   chooser.showOpenDialog(null);
+      //  File f = chooser.getSelectedFile();
+      //  String path = f.getAbsolutePath();
+     //   ImageIcon icon = new ImageIcon(path);
      //   jLabelQR.setIcon(icon);
+      GenerarCodigoQR();
     }//GEN-LAST:event_btnQRActionPerformed
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
