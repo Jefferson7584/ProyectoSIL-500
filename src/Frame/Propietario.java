@@ -249,7 +249,7 @@ public class Propietario extends javax.swing.JFrame {
          insertarDatos();
          limpiarCajas();
          mostrarDatos();
-         GenerarCodigoQR();
+        
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
