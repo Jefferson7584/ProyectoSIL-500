@@ -73,6 +73,8 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         txtfoto = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtregistro = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,21 +96,21 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jLabel13.setText("POLIZA");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         jLabel14.setText("NUMERO CHASIS");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
 
         jLabel15.setText("NUMERO COPIA DE PLACA");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
 
         jLabel16.setText("BUSQUEDA:");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
         jPanel1.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, -1));
         jPanel1.add(txtnumero_motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 160, 130, -1));
-        jPanel1.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 120, -1));
-        jPanel1.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 110, -1));
-        jPanel1.add(txtnumero_copia_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 110, -1));
+        jPanel1.add(txtpoliza, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 120, -1));
+        jPanel1.add(txtnumero_chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 120, -1));
+        jPanel1.add(txtnumero_copia_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 110, -1));
 
         txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +149,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
-        jPanel1.add(jLabelFotoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 160, 130));
+        jPanel1.add(jLabelFotoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 160, 120));
 
         btnNuevo.setText("NUEVO");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -181,6 +183,10 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         });
         jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
         jPanel1.add(txtfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 130, -1));
+
+        jLabel2.setText("REGISTRO DATOS TECNICOS");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+        jPanel1.add(txtregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 150, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 650, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,6 +207,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
            int filaSeleccionada = Tabla_Identificacion.rowAtPoint(evt.getPoint());
         txtplaca.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 0).toString());
+        txtregistro.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 1).toString());
         txtpoliza.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 2).toString());
         txtnumero_copia_placa.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 3).toString());
         txtnumero_motor.setText(Tabla_Identificacion.getValueAt(filaSeleccionada, 4).toString());
@@ -299,13 +306,14 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             FileInputStream archivoFoto;
             File nombreFoto;
         try {
-            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?,?)";
+            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,reg_datos_tec,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
           //  pst.setString(0, txtci.getText());
             nombreFoto=new File (txtfoto.getText());
             archivoFoto=new FileInputStream(nombreFoto);
             
             pst.setString(1, txtplaca.getText());
+            pst.setString(2, txtregistro.getText());
             pst.setString(3, txtpoliza.getText());
             pst.setString(4, txtnumero_copia_placa.getText());
             pst.setString(5, txtnumero_motor.getText());
@@ -322,18 +330,19 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
                 
                public void actualizarDatos() {
         try {
-            String SQL = "update tb_identificacion_vehiculo set poliza=?,nro:copia_placa_tpa=?,nro_motor=?,nro_chasis=?,foto=? where placa_iv=? reg_datos_tec=?"; //where idalumnos=?
+            String SQL = "update tb_identificacion_vehiculo set poliza=?,nro_copia_placa_tpa=?,nro_motor=?,nro_chasis=?,foto=? where placa_iv=? reg_datos_tec=?"; //where idalumnos=?
             int filaSeleccionado = Tabla_Identificacion.getSelectedRow();
             String dao = (String) Tabla_Identificacion.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
 
-           // pst.setString(1, txtplaca.getText());
-            pst.setString(3, txtpoliza.getText());
-            pst.setString(4, txtnumero_copia_placa.getText());
-            pst.setString(5, txtnumero_motor.getText());
-            pst.setString(6, txtnumero_chasis.getText());
-            pst.setString(7, jLabelFotoA.getText());
-            pst.setString(8, dao);
+          //  pst.setString(1, txtplaca.getText());
+           // pst.setString(1, txtregistro.getText());
+            pst.setString(2, txtpoliza.getText());
+            pst.setString(3, txtnumero_copia_placa.getText());
+            pst.setString(4, txtnumero_motor.getText());
+            pst.setString(5, txtnumero_chasis.getText());
+            pst.setString(6, jLabelFotoA.getText());
+            pst.setString(7, dao);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Registro Editado Exitoso");
 
@@ -431,6 +440,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelFotoA;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -441,5 +451,6 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JTextField txtnumero_motor;
     private javax.swing.JTextField txtplaca;
     private javax.swing.JTextField txtpoliza;
+    private javax.swing.JTextField txtregistro;
     // End of variables declaration//GEN-END:variables
 }
