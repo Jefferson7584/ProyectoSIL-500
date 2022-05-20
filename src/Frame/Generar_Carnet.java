@@ -220,6 +220,11 @@ public class Generar_Carnet extends javax.swing.JFrame {
         jPanel1.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 110, -1));
 
         jButton2.setText("Menu Principal");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, -1, -1));
 
         btnVEHICULO.setText("FOTO VEHICULO");
@@ -327,6 +332,13 @@ public class Generar_Carnet extends javax.swing.JFrame {
         txtregistro.setText(Tabla_generacion.getValueAt(filaSeleccionada, 3).toString());
         txtcarnet.setText(Tabla_generacion.getValueAt(filaSeleccionada, 4).toString());
     }//GEN-LAST:event_Tabla_generacionMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Menu_Principal abrir = new Menu_Principal ();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
                 public void filtrarDatos(String valor) {
