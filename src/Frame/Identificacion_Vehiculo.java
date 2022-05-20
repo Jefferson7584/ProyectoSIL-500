@@ -267,6 +267,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
 
     public void limpiarCajas() {
         txtplaca.setText("");
+        txtregistro.setText("");
         txtpoliza.setText("");
         txtnumero_copia_placa.setText("");
         txtnumero_motor.setText("");
