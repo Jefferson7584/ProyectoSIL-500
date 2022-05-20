@@ -83,6 +83,11 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPrincipal.setText("MENU PRINCIPAL");
+        btnPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrincipalActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
@@ -264,6 +269,13 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             jLabelFotoA.setIcon(new ImageIcon(foto));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
+        // TODO add your handling code here:
+        Menu_Principal abrir = new Menu_Principal ();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnPrincipalActionPerformed
 
     public void limpiarCajas() {
         txtplaca.setText("");
