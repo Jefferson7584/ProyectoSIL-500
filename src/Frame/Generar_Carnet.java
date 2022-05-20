@@ -5,19 +5,72 @@
  */
 package Frame;
 
+import com.mysql.jdbc.Connection;
+import conexionSQL.conexionSQL;
+import java.awt.Graphics;
+import java.awt.PrintJob;
+import java.awt.Toolkit;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author JEFFERSON
  */
 public class Generar_Carnet extends javax.swing.JFrame {
 
+      conexionSQL cc = new conexionSQL();
+       Connection con = cc.conexion();
     /**
      * Creates new form Generar_Carnet
      */
     public Generar_Carnet() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(getBackground());
+        mostrarDatos();
     }
+    
+     public void limpiarCajas() {
+        txtCodigo.setText("");
+        txtplaca.setText("");
+        txtci.setText("");
+        txtregistro.setText("");
+        txtcarnet.setText("");
+        jLabelFotoA.setIcon(null);
+        jLabelFotoP.setIcon(null);
+    }
+    
+    
+    
+      public void mostrarDatos() {
+        String[] titulos = {"CODIGO", "PLACA", "C I", "FECHA DE REGISTRO", "FECHA LIMITE", "FOTO AUTO", "FOTO PROPIETARIO"};
+        String[] registros = new String[8];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from tb_generacion * tb_identificacion_vehiculo * tp_propietario";
+     //   String SQL = "select * from tb_identificacion_vehiculo";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
 
+            while (rs.next()) {
+                //PARTE DE  LA BASE DE DATOS MYSQL
+                registros[0] = rs.getString("cod_registro");
+                registros[1] = rs.getString("placa_iv");
+                registros[2] = rs.getString("ci_propietario");
+                registros[3] = rs.getString("fecha_registro");
+                registros[4] = rs.getString("duracion_carnet");
+                registros[5] = rs.getString("foto");
+                registros[6] = rs.getString("foto");
+                modelo.addRow(registros);
+            }
+            Tabla_generacion.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,32 +82,55 @@ public class Generar_Carnet extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabelFotoA = new javax.swing.JLabel();
+        txtplaca = new javax.swing.JLabel();
+        txtci = new javax.swing.JLabel();
+        txtregistro = new javax.swing.JTextField();
+        txtcarnet = new javax.swing.JTextField();
+        jLabelFotoP = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtbusqueda = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabla_generacion = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnGenerar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-        );
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelFotoA.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(jLabelFotoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 100));
+
+        txtplaca.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 80, 20));
+
+        txtci.setText("jLabel7");
+        txtci.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(txtci, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 90, -1));
+
+        txtregistro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(txtregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 90, -1));
+
+        txtcarnet.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(txtcarnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 90, -1));
+
+        jLabelFotoP.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(jLabelFotoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 60, 70));
+
+        txtCodigo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 80, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/1234.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 200));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 350, 200));
 
@@ -75,8 +151,11 @@ public class Generar_Carnet extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 70, 20));
         jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 240, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla_generacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {},
+                {},
+                {},
                 {},
                 {},
                 {},
@@ -86,7 +165,7 @@ public class Generar_Carnet extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tabla_generacion);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 800, 190));
 
@@ -94,8 +173,13 @@ public class Generar_Carnet extends javax.swing.JFrame {
         jLabel1.setText("GENERAR CARNET");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 200, -1));
 
-        jButton1.setText("Generar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 110, -1));
+        btnGenerar.setText("Generar");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 110, -1));
 
         jButton2.setText("Menu Principal");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, -1, -1));
@@ -115,6 +199,17 @@ public class Generar_Carnet extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+       
+        // TODO add your handling code here:
+        Toolkit tkp = jPanel2.getToolkit();
+        PrintJob pjp = tkp.getPrintJob(this, null, null);
+        Graphics g = pjp.getGraphics();
+        jPanel2.paintAll(g);
+        g.dispose();
+        pjp.end();
+    }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,17 +247,24 @@ public class Generar_Carnet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTable Tabla_generacion;
+    private javax.swing.JButton btnGenerar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelFotoA;
+    private javax.swing.JLabel jLabelFotoP;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtbusqueda;
+    private javax.swing.JTextField txtcarnet;
+    private javax.swing.JLabel txtci;
+    private javax.swing.JLabel txtplaca;
+    private javax.swing.JTextField txtregistro;
     // End of variables declaration//GEN-END:variables
 }
