@@ -387,7 +387,7 @@ public class Propietario extends javax.swing.JFrame {
                 registros[8] = rs.getString("zona");
                 registros[9] = rs.getString("nro_domicilio");
                 registros[10] = rs.getString("codigo_qr");
-                registros[11] = rs.getString("foto");
+                registros[11] = rs.getString("foto_P");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
@@ -399,7 +399,7 @@ public class Propietario extends javax.swing.JFrame {
             FileInputStream archivoFoto;
             File nombreFoto;
         try {
-            String SQL = "insert into tp_propietario(ci_propietario,expedido,nombre1,nombre2,apellido_paterno,apellido_materno,pais,ciudad,zona,nro_domicilio,codigo_qr,foto)values (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String SQL = "insert into tp_propietario(ci_propietario,expedido,nombre1,nombre2,apellido_paterno,apellido_materno,pais,ciudad,zona,nro_domicilio,codigo_qr,foto_P)values (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
             nombreFoto=new File (txtnombre_foto.getText());
             archivoFoto=new FileInputStream(nombreFoto);
@@ -429,7 +429,7 @@ public class Propietario extends javax.swing.JFrame {
             FileInputStream archivoFoto;
             File nombreFoto;
         try {
-            String SQL = "update tp_propietario set expedido=?,nombre1=?,nombre2=?,apellido_paterno=?,apellido_materno=?,pais=?,ciudad=?,zona=?,nro_domicilio=?,codigo_qr=?,foto=? where ci_propietario=?"; //where idalumnos=?
+            String SQL = "update tp_propietario set expedido=?,nombre1=?,nombre2=?,apellido_paterno=?,apellido_materno=?,pais=?,ciudad=?,zona=?,nro_domicilio=?,codigo_qr=?,foto_P=? where ci_propietario=?"; //where idalumnos=?
             int filaSeleccionado = tablapropietario.getSelectedRow();
             String dao = (String) tablapropietario.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
@@ -493,7 +493,7 @@ public class Propietario extends javax.swing.JFrame {
                 registros[8] = rs.getString("zona");
                 registros[9] = rs.getString("nro_domicilio");
                 registros[10] = rs.getString("codigo_qr");
-                registros[11] = rs.getString("foto");
+                registros[11] = rs.getString("foto_P");
                 modelo.addRow(registros);
             }
             tablapropietario.setModel(modelo);
