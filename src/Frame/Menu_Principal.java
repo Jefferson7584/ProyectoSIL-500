@@ -14,8 +14,8 @@ import conexionSQL.conexionSQL;
  */
 public class Menu_Principal extends javax.swing.JFrame {
     
-       conexionSQL cc = new conexionSQL();
-       Connection con = cc.conexion();
+     //  conexionSQL cc = new conexionSQL();
+    //   Connection con = cc.conexion();
     /**
      * Creates new form Menu_Principal
      */
