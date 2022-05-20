@@ -272,6 +272,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
         txtnumero_copia_placa.setText("");
         txtnumero_motor.setText("");
         txtnumero_chasis.setText("");
+        txtfoto.setText("");
         jLabelFotoA.setIcon(null);
     }
     
