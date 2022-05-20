@@ -143,9 +143,8 @@ public class Generar_Carnet extends javax.swing.JFrame {
         txtplaca.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 80, 20));
 
-        txtci.setText("jLabel7");
         txtci.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(txtci, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 90, -1));
+        jPanel2.add(txtci, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 90, 20));
 
         txtregistro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(txtregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 90, -1));
