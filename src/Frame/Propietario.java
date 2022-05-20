@@ -215,6 +215,11 @@ public class Propietario extends javax.swing.JFrame {
         jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, -1, -1));
 
         btnprincipal.setText("MENU PRINCIPAL");
+        btnprincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnprincipalActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, -1, -1));
 
         btnactualizar.setText("ACTUALIZAR");
@@ -336,6 +341,13 @@ public class Propietario extends javax.swing.JFrame {
             jLabelFoto.setIcon(new ImageIcon(foto));
         }
     }//GEN-LAST:event_btnFotoActionPerformed
+
+    private void btnprincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprincipalActionPerformed
+        // TODO add your handling code here:
+        Menu_Principal abrir = new Menu_Principal ();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnprincipalActionPerformed
 
     /**
      * @param args the command line arguments
