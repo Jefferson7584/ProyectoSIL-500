@@ -287,7 +287,9 @@ public class Datos_Tecnicos extends javax.swing.JFrame {
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         // TODO add your handling code here:
-       
+        Menu_Principal abrir = new Menu_Principal ();
+        abrir.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void tabla_datos_tecnicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_datos_tecnicosMouseClicked
