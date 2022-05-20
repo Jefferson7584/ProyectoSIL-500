@@ -10,8 +10,13 @@ import conexionSQL.conexionSQL;
 import java.awt.Graphics;
 import java.awt.PrintJob;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,10 +51,10 @@ public class Generar_Carnet extends javax.swing.JFrame {
     
     
       public void mostrarDatos() {
-        String[] titulos = {"CODIGO", "PLACA", "C I", "FECHA DE REGISTRO", "FECHA LIMITE", "FOTO AUTO", "FOTO PROPIETARIO"};
+        String[] titulos = {"CODIGO", "PLACA", "C I", "FECHA DE REGISTRO", "FECHA LIMITE"};
         String[] registros = new String[8];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        String SQL = "select * from tb_generacion * tb_identificacion_vehiculo * tp_propietario";
+        String SQL = "select * from tb_generacion";
      //   String SQL = "select * from tb_identificacion_vehiculo";
         try {
             Statement st = con.createStatement();
@@ -62,13 +67,34 @@ public class Generar_Carnet extends javax.swing.JFrame {
                 registros[2] = rs.getString("ci_propietario");
                 registros[3] = rs.getString("fecha_registro");
                 registros[4] = rs.getString("duracion_carnet");
-                registros[5] = rs.getString("foto");
-                registros[6] = rs.getString("foto");
+               // registros[5] = rs.getString("foto_A");
+              //  registros[6] = rs.getString("foto_P");
                 modelo.addRow(registros);
             }
             Tabla_generacion.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+        }
+      
+      
+       public void insertarDatos() {
+         
+        try {
+            String SQL = "insert into tb_identificacion_vehiculo(cod_registro,placa_iv,ci_propietario,fecha_registro,duracion_carnet)values (?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(SQL);
+          //  pst.setString(0, txtci.getText());
+       
+            pst.setString(1, txtCodigo.getText());
+            pst.setString(2, txtplaca.getText());
+            pst.setString(3, txtci.getText());
+            pst.setString(4, txtregistro.getText());
+            pst.setString(5, txtcarnet.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Registro ERROR" + e.getMessage());
         }
         }
     /**
@@ -99,6 +125,10 @@ public class Generar_Carnet extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnGenerar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnVEHICULO = new javax.swing.JButton();
+        btnPROPIETARIO = new javax.swing.JButton();
+        btnNUEVO = new javax.swing.JButton();
+        btnREGISTRAR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,12 +179,16 @@ public class Generar_Carnet extends javax.swing.JFrame {
 
         jLabel3.setText("BUSQUEDA:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 70, 20));
-        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 240, -1));
+
+        txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbusquedaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 180, -1));
 
         Tabla_generacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
                 {},
                 {},
                 {},
@@ -167,22 +201,54 @@ public class Generar_Carnet extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Tabla_generacion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 800, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 650, 190));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 2, 18)); // NOI18N
         jLabel1.setText("GENERAR CARNET");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 200, -1));
 
-        btnGenerar.setText("Generar");
+        btnGenerar.setText("GENERAR");
         btnGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 110, -1));
+        jPanel1.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 110, -1));
 
         jButton2.setText("Menu Principal");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, -1, -1));
+
+        btnVEHICULO.setText("FOTO VEHICULO");
+        btnVEHICULO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVEHICULOActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVEHICULO, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        btnPROPIETARIO.setText("FOTO PROPIETARIO");
+        btnPROPIETARIO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPROPIETARIOActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPROPIETARIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 140, -1));
+
+        btnNUEVO.setText("NUEVO");
+        btnNUEVO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNUEVOActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNUEVO, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 300, 80, -1));
+
+        btnREGISTRAR.setText("REGISTRAR");
+        btnREGISTRAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnREGISTRARActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnREGISTRAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -211,6 +277,66 @@ public class Generar_Carnet extends javax.swing.JFrame {
         pjp.end();
     }//GEN-LAST:event_btnGenerarActionPerformed
 
+    private void btnVEHICULOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVEHICULOActionPerformed
+        // TODO add your handling code here:
+         JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String path = f.getAbsolutePath();
+        ImageIcon icon = new ImageIcon(path);
+        jLabelFotoA.setIcon(icon);
+    }//GEN-LAST:event_btnVEHICULOActionPerformed
+
+    private void btnPROPIETARIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPROPIETARIOActionPerformed
+        // TODO add your handling code here:
+          JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String path = f.getAbsolutePath();
+        ImageIcon icon = new ImageIcon(path);
+        jLabelFotoP.setIcon(icon);
+    }//GEN-LAST:event_btnPROPIETARIOActionPerformed
+
+    private void btnNUEVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNUEVOActionPerformed
+        // TODO add your handling code here:
+        limpiarCajas();
+    }//GEN-LAST:event_btnNUEVOActionPerformed
+
+    private void btnREGISTRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnREGISTRARActionPerformed
+        // TODO add your handling code here:
+         insertarDatos();
+       //  limpiarCajas();
+         mostrarDatos();
+    }//GEN-LAST:event_btnREGISTRARActionPerformed
+
+    private void txtbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbusquedaActionPerformed
+        // TODO add your handling code here:
+        filtrarDatos(txtbusqueda.getText());
+    }//GEN-LAST:event_txtbusquedaActionPerformed
+
+    
+                public void filtrarDatos(String valor) {
+        String[] titulos = {"CODIGO", "PLACA", "C I", "FECHA DE REGISTRO", "FECHA LIMITE"};
+        String[] registros = new String[8];
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        String SQL = "select * from tb_generacion where cod_registro like '%" + valor + "%'";
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            while (rs.next()) {
+                registros[0] = rs.getString("cod_registro");
+                registros[1] = rs.getString("placa_iv");
+                registros[2] = rs.getString("ci_propietario");
+                registros[3] = rs.getString("fecha_registro");
+                registros[4] = rs.getString("duracion_carnet");
+                modelo.addRow(registros);
+            }
+            Tabla_generacion.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "MOSTRAR DATOS ERROR" + e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -249,6 +375,10 @@ public class Generar_Carnet extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla_generacion;
     private javax.swing.JButton btnGenerar;
+    private javax.swing.JButton btnNUEVO;
+    private javax.swing.JButton btnPROPIETARIO;
+    private javax.swing.JButton btnREGISTRAR;
+    private javax.swing.JButton btnVEHICULO;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
