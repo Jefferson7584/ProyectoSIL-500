@@ -294,7 +294,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
                 registros[3] = rs.getString("nro_copia_placa_tpa");
                 registros[4] = rs.getString("nro_motor");
                 registros[5] = rs.getString("nro_chasis");
-                registros[6] = rs.getString("foto");
+                registros[6] = rs.getString("foto_A");
                 modelo.addRow(registros);
             }
             Tabla_Identificacion.setModel(modelo);
@@ -308,7 +308,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
             FileInputStream archivoFoto;
             File nombreFoto;
         try {
-            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,reg_datos_tec,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto)values (?,?,?,?,?,?,?)";
+            String SQL = "insert into tb_identificacion_vehiculo(placa_iv,reg_datos_tec,poliza,nro_copia_placa_tpa,nro_motor,nro_chasis,foto_A)values (?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(SQL);
           //  pst.setString(0, txtci.getText());
             nombreFoto=new File (txtfoto.getText());
@@ -332,7 +332,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
                 
                public void actualizarDatos() {
         try {
-            String SQL = "update tb_identificacion_vehiculo set poliza=?,nro_copia_placa_tpa=?,nro_motor=?,nro_chasis=?,foto=? where placa_iv=? reg_datos_tec=?"; //where idalumnos=?
+            String SQL = "update tb_identificacion_vehiculo set poliza=?,nro_copia_placa_tpa=?,nro_motor=?,nro_chasis=?,foto_A=? where placa_iv=? reg_datos_tec=?"; //where idalumnos=?
             int filaSeleccionado = Tabla_Identificacion.getSelectedRow();
             String dao = (String) Tabla_Identificacion.getValueAt(filaSeleccionado, 0);
             PreparedStatement pst = con.prepareStatement(SQL);
@@ -383,7 +383,7 @@ public class Identificacion_Vehiculo extends javax.swing.JFrame {
                 registros[3] = rs.getString("nro_copia_placa_tpa");
                 registros[4] = rs.getString("nro_motor");
                 registros[5] = rs.getString("nro_chasis");
-                registros[6] = rs.getString("foto");
+                registros[6] = rs.getString("foto_A");
                 modelo.addRow(registros);
             }
             Tabla_Identificacion.setModel(modelo);
