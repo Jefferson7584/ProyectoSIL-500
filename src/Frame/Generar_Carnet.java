@@ -199,6 +199,11 @@ public class Generar_Carnet extends javax.swing.JFrame {
 
             }
         ));
+        Tabla_generacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabla_generacionMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Tabla_generacion);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 650, 190));
@@ -313,6 +318,16 @@ public class Generar_Carnet extends javax.swing.JFrame {
         // TODO add your handling code here:
         filtrarDatos(txtbusqueda.getText());
     }//GEN-LAST:event_txtbusquedaActionPerformed
+
+    private void Tabla_generacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla_generacionMouseClicked
+        // TODO add your handling code here:
+         int filaSeleccionada = Tabla_generacion.rowAtPoint(evt.getPoint());
+        txtCodigo.setText(Tabla_generacion.getValueAt(filaSeleccionada, 0).toString());
+        txtplaca.setText(Tabla_generacion.getValueAt(filaSeleccionada, 1).toString());
+        txtci.setText(Tabla_generacion.getValueAt(filaSeleccionada, 2).toString());
+        txtregistro.setText(Tabla_generacion.getValueAt(filaSeleccionada, 3).toString());
+        txtcarnet.setText(Tabla_generacion.getValueAt(filaSeleccionada, 4).toString());
+    }//GEN-LAST:event_Tabla_generacionMouseClicked
 
     
                 public void filtrarDatos(String valor) {
