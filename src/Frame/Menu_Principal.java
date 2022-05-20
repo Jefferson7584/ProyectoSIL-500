@@ -40,6 +40,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         btnIDENTIFICACION_VEHICULO = new javax.swing.JButton();
         btnGENERAR_CARNET = new javax.swing.JButton();
         btnSALIR = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,6 +87,11 @@ public class Menu_Principal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSALIR, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 120, 40));
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 2, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel2.setText("MENU PRINCIPAL");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 210, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -177,6 +183,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnPROPIETARIO;
     private javax.swing.JButton btnSALIR;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
