@@ -80,6 +80,11 @@ public class Menu_Principal extends javax.swing.JFrame {
         jPanel1.add(btnGENERAR_CARNET, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 140, 60));
 
         btnSALIR.setText("SALIR");
+        btnSALIR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSALIRActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSALIR, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 120, 40));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 390));
 
@@ -124,6 +129,11 @@ public class Menu_Principal extends javax.swing.JFrame {
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnGENERAR_CARNETActionPerformed
+
+    private void btnSALIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSALIRActionPerformed
+        // TODO add your handling code here:
+        System.exit(WIDTH);
+    }//GEN-LAST:event_btnSALIRActionPerformed
 
     /**
      * @param args the command line arguments
